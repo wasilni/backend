@@ -30,6 +30,7 @@
         "laravel/passport": "~9",
         "laravel/socialite": "^4.3",
         "laravel/tinker": "^2.0",
+        "laravel_payment/telr": "^1.2",
         "maatwebsite/excel": "^3.1",
         "mpociot/laravel-apidoc-generator": "^4.3",
         "nicolaslopezj/searchable": "^1.12",

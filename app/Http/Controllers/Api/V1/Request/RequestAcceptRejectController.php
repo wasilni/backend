@@ -75,6 +75,9 @@ class RequestAcceptRejectController extends BaseController
             if ($request_detail->if_dispatch) {
                 goto accet_dispatch_notify;
             }
+            
+            
+        //here proplem 
             $user = User::find($request_detail->user_id);
             $title = trans('push_notifications.trip_accepted_title');
             $body = trans('push_notifications.trip_accepted_body');
@@ -89,9 +92,9 @@ class RequestAcceptRejectController extends BaseController
         $body_ar = ' السائق قادم تجاهك ';
         
         
-       $user->notify(new DriverAcceptRequestNotification($title_ar,$title_en, $body_ar,$body_en));
-                    
-            
+      $user->notify(new DriverAcceptRequestNotification($title_ar,$title_en, $body_ar,$body_en));
+                    //here proplem 
+
             
             
 

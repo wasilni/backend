@@ -66,9 +66,9 @@ class EtaController extends ApiController
 
 
 
-   if ($request->has('vehicle_type')) {
-            $type = $zone_detail->zoneType()->where('id', $request->input('vehicle_type'))->first();
-        }
+//   if ($request->has('vehicle_type')) {
+//             $type = $zone_detail->zoneType()->where('id', $request->input('vehicle_type'))->first();
+//         }
         
         else
         {
@@ -85,8 +85,11 @@ class EtaController extends ApiController
 
           
             }
+            
             else{
-                            $type = $zone_detail->zoneType;
+     $type = $zone_detail->zoneType()
+       ->whereIn('type_id', ['052bea3d-dbaa-4b0c-b703-b229016854d8', 'a812c9e9-b41d-4895-aca7-45af3b028bbc','a6af8a8c-f31e-4dfd-9581-065233cf6990'])->get();
+
 
             }
         }

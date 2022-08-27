@@ -219,7 +219,7 @@ td {
     
       <div class="box">
                 <div class="box-header bb-2 border-primary">
-                    <h3 class="box-title">@lang('view_pages.rating')</h3>
+                    <h3 class="box-title">@lang('view_pages.ratingsdriver')</h3>
                 </div>
 
                 <div class="box-body">
@@ -237,7 +237,7 @@ td {
                             <tr>  
                            
                             
-                      <td>{{ $RequestRatingsuse->requestDetail->userDetail
+                      <td>{{ $RequestRatingsuse->requestDetail->driverDetail
                       ->name }}</td>
                     <td>{{ $RequestRatingsuse->rating }}</td>
                      <td>{{ $RequestRatingsuse->comment }}</td>
@@ -261,10 +261,10 @@ td {
 
       <div class="box">
                 <div class="box-header bb-2 border-primary">
-                    <h3 class="box-title">@lang('view_pages.rating')</h3>
+                    <h3 class="box-title">@lang('view_pages.ratingsuser')</h3>
                 </div>
 
-                <div class="box-body">
+                 <div class="box-body">
                     <table class="table table-hover">
                         <thead>
                             <tr>
@@ -275,18 +275,18 @@ td {
                             </tr>
                         </thead>
                         <tbody>
-                             @foreach($RequestRatingsdriver as $RequestRatingsdriver)
+                             @foreach($RequestRatingsdriver as $RequestRatingsdrive)
                             <tr>  
                            
                             
-                      <td>{{ $RequestRatingsdriver->requestDetail->driverDetail
+                      <td>{{ $RequestRatingsdrive->requestDetail->userDetail
                       ->name }}</td>
-                    <td>{{ $RequestRatingsdriver->rating }}</td>
-                     <td>{{ $RequestRatingsdriver->comment }}</td>
+                    <td>{{ $RequestRatingsdrive->rating }}</td>
+                     <td>{{ $RequestRatingsdrive->comment }}</td>
                @if(App::getLocale() == 'en')
-                      <td>{{ $RequestRatingsdriver->not_statisfied_en}}</td>
+                      <td>{{ $RequestRatingsdrive->not_statisfied_en}}</td>
                       @else
-                       <td>{{ $RequestRatingsdriver->not_statisfied_ar }}</td>
+                       <td>{{ $RequestRatingsdrive->not_statisfied_ar }}</td>
                       @endif
                                @endforeach
                             </tr>

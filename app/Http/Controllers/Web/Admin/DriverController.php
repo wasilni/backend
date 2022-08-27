@@ -456,16 +456,17 @@ class DriverController extends BaseController
        
         $completedTrips = RequestRequest::where('driver_id',$driver->id)->companyKey()->whereIsCompleted(true)->count();
         $cancelledTrips = RequestRequest::where('driver_id',$driver->id)->companyKey()->whereIsCancelled(true)->count();
+        
 
-        $card = [];
-        $card['completed_trip'] = ['name' => 'trips_completed', 'display_name' => 'Completed Rides', 'count' => $completedTrips, 'icon' => 'fa fa-flag-checkered text-green'];
-        $card['cancelled_trip'] = ['name' => 'trips_cancelled', 'display_name' => 'Cancelled Rides', 'count' => $cancelledTrips, 'icon' => 'fa fa-ban text-red'];
+        // $card = [];
+        // $card['completed_trip'] = ['name' => 'trips_completed', 'display_name' => 'Completed Rides', 'count' => $completedTrips, 'icon' => 'fa fa-flag-checkered text-green'];
+        // $card['cancelled_trip'] = ['name' => 'trips_cancelled', 'display_name' => 'Cancelled Rides', 'count' => $cancelledTrips, 'icon' => 'fa fa-ban text-red'];
 
         $main_menu = 'drivers';
         $sub_menu = 'driver_details';
         $items = $driver->id;
 
-        return view('admin.drivers.driver-request-list', compact('card','main_menu','sub_menu','items'));
+        return view('admin.drivers.driver-request-list', compact('main_menu','sub_menu','items','completedTrips','cancelledTrips'));
     }
      public function DriverTripRequest(QueryFilterContract $queryFilter, Driver $driver)
         {
@@ -485,11 +486,15 @@ class DriverController extends BaseController
         // dd($item);
 
         $amount = DriverWallet::where('user_id',$driver->id)->first();
+$Total_Amount=$amount->amount_added;
+$Spen_dAmount=$amount->amount_spent;
+$Balance_Amount=$amount->amount_balance;
 
-         $card = [];
-        $card['total_amount'] = ['name' => 'total_amount', 'display_name' => 'Total Amount ', 'count' => $amount->amount_added, 'icon' => 'fa fa-flag-checkered text-green'];
-        $card['amount_spent'] = ['name' => 'amount_spent', 'display_name' => 'Spend Amount ', 'count' => $amount->amount_spent, 'icon' => 'fa fa-ban text-red'];
-        $card['balance_amount'] = ['name' => 'balance_amount', 'display_name' => 'Balance Amount', 'count' => $amount->amount_balance, 'icon' => 'fa fa-ban text-red'];
+
+        //  $card = [];
+        // $card['total_amount'] = ['name' => 'total_amount', 'display_name' => 'Total Amount ', 'count' => $amount->amount_added, 'icon' => 'fa fa-flag-checkered text-green'];
+        // $card['amount_spent'] = ['name' => 'amount_spent', 'display_name' => 'Spend Amount ', 'count' => $amount->amount_spent, 'icon' => 'fa fa-ban text-red'];
+        // $card['balance_amount'] = ['name' => 'balance_amount', 'display_name' => 'Balance Amount', 'count' => $amount->amount_balance, 'icon' => 'fa fa-ban text-red'];
 
 
          $history = DriverWalletHistory::where('user_id',$driver->id)->orderBy('created_at','desc')->paginate(10);
@@ -497,7 +502,7 @@ class DriverController extends BaseController
 
 
 
-        return view('admin.drivers.driver-payment-wallet', compact('card','main_menu','sub_menu','item','history'));
+        return view('admin.drivers.driver-payment-wallet', compact('main_menu','sub_menu','item','history','Total_Amount','Spen_dAmount','Balance_Amount'));
     }
 
     public function StoreDriverPaymentHistory(AddDriverMoneyToWalletRequest $request,Driver $driver)

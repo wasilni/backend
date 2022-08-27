@@ -211,7 +211,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="font-weight-600">
-                                    {{ trans('view_pages.ratings') }} 
+                                    {{ trans('view_pages.ratingsdriver') }} 
                                     </h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
@@ -222,14 +222,37 @@
 
                             <div class="box-body row">
                                 <div id="js-request-partial-target" class="table-responsive">
-                                    <include-fragment>
-                                        <p id="no_data" class="lead no-data text-center">
-                                            <img src="{{asset('assets/img/dark-data.svg')}}" style="width:150px;margin-top:25px;margin-bottom:25px;" alt="">
-                                            <h4 class="text-center" style="color:#333;font-size:25px;"> 
-                                            {{ trans('pages_names.NO_DATA_FOUND') }}
-                                                </h4>
-                                        </p>
-                                    </include-fragment>
+                                   
+                <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>@lang('view_pages.name')</th>
+                                <th>@lang('view_pages.rating')</th>
+                                <th>@lang('view_pages.comment')</th>
+                                <th>@lang('view_pages.notsatisfied')</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             @foreach($RequestRatinguser as $RequestRatingsuse)
+                            <tr>  
+                           
+                            
+        <td><a href="{{url('requests/'.$RequestRatingsuse->request_id)}}">
+            {{ $RequestRatingsuse->requestDetail->driverDetail
+                      ->name }}</a></td>
+                    <td>{{ $RequestRatingsuse->rating }}</td>
+                     <td>{{ $RequestRatingsuse->comment }}</td>
+               @if(App::getLocale() == 'en')
+                      <td>{{ $RequestRatingsuse->not_statisfied_en}}</td>
+                      @else
+                       <td>{{ $RequestRatingsuse->not_statisfied_ar }}</td>
+                      @endif
+                               @endforeach
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                                 </div>                                
                             </div>
                         </div>
@@ -238,6 +261,61 @@
             </div>
         </div>
         @endif
+        
+        
+        
+            @if(!auth()->user()->hasRole('owner'))
+        <div class="row g-3">
+            <div class="col-md-12">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="box">
+                            <div class="box-header with-border">
+                                <h3 class="font-weight-600">
+                                    {{ trans('view_pages.ratingsuser') }} 
+                                    </h3>
+                                <ul class="box-controls pull-right">
+                                    <li><a class="box-btn-close" href="#"></a></li>
+                                    <li><a class="box-btn-slide" href="#"></a></li>
+                                    <li><a class="box-btn-fullscreen" href="#"></a></li>
+                                </ul>
+                            </div>
+
+                               <div class="box-body">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>@lang('view_pages.name')</th>
+                                <th>@lang('view_pages.rating')</th>
+                                <th>@lang('view_pages.comment')</th>
+                                <th>@lang('view_pages.notsatisfied')</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                             @foreach($RequestRatingdriver as $RequestRatingsdrive)
+                            <tr > 
+                            
+                      <td><a  href="{{url('requests/'.$RequestRatingsdrive->request_id)}}">{{ $RequestRatingsdrive->requestDetail->userDetail
+                      ->name }}</a> </td>
+                    <td>{{ $RequestRatingsdrive->rating }}</td>
+                     <td>{{ $RequestRatingsdrive->comment }}</td>
+               @if(App::getLocale() == 'en')
+                      <td>{{ $RequestRatingsdrive->not_statisfied_en}}</td>
+                      @else
+                       <td>{{ $RequestRatingsdrive->not_statisfied_ar }}</td>
+                      @endif
+                               @endforeach
+                           </tr>
+                        </tbody>
+                    </table>
+                </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @endif
+
 
         <div class="row g-3">
             <div class="col-md-12">

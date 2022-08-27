@@ -24,7 +24,7 @@ class ZoneType extends Model
      * @var array
      */
     protected $fillable = [
-        'zone_id', 'type_id','payment_type','active','bill_status'
+        'zone_id', 'type_id','payment_type','active','bill_status','model'
     ];
 
     /**

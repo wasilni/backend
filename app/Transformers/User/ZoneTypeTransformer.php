@@ -35,6 +35,8 @@ class ZoneTypeTransformer extends Transformer
             'currency' => $zone_type->zone->serviceLocation->currency_symbol,
             'unit' => $zone_type->zone->unit,
             'unit_in_words' => $zone_type->zone->unit ? 'Km' : 'Miles',
+            'model' => $zone_type->zone->model,
+            
 
         ];
 

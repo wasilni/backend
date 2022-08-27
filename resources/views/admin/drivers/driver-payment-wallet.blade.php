@@ -7,17 +7,41 @@
 
 <!-- Start Page content -->
  <div class="row">
-            @foreach ($card as $items)
-                <div class="col-xl-4 col-md-6 col-12">
+     
+       <div class="col-xl-4 col-md-6 col-12">
                     <div class="box box-body">
-                        <h5 class="text-capitalize">{{ $items['display_name'] }}</h5>
+                        <h5 class="text-capitalize">@lang('view_pages.Total_Amount') </h5>
                         <div class="flexbox wid-icons mt-2">
-                            <span class="{{ $items['icon'] }} font-size-40"></span>
-                            <span class=" font-size-30">{{ $items['count'] }}</span>
+                            <span class="fa fa-flag-checkered text-green font-size-40"></span>
+                            <span class=" font-size-30">{{ $Total_Amount}}</span>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                
+                
+                
+                   <div class="col-xl-4 col-md-6 col-12">
+                    <div class="box box-body">
+                        <h5 class="text-capitalize">@lang('view_pages.Spend_Amount')   </h5>
+                        <div class="flexbox wid-icons mt-2">
+                            <span class="fa fa-ban text-red font-size-40"></span>
+                            <span class=" font-size-30">{{$Spen_dAmount}}</span>
+                        </div>
+                    </div>
+                </div>
+                    <div class="col-xl-4 col-md-6 col-12">
+                    <div class="box box-body">
+                        <h5 class="text-capitalize">@lang('view_pages.Balance_Amount')   </h5>
+                        <div class="flexbox wid-icons mt-2">
+                            <span class="fa fa-ban text-red font-size-40"></span>
+                            <span class=" font-size-30">{{$Balance_Amount}}</span>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+         
         </div>
 
 
@@ -77,7 +101,7 @@
  <div class="content">
 
         <div class="row">
-<h5>Wallet History</h5>
+<h5> @lang('view_pages.Wallet_History')</h5>
             <div class="col-12">
         <div class="box">            
             <table class="table table-hover">

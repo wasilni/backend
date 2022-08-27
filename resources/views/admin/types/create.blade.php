@@ -53,13 +53,9 @@
         </div>
     </div>
 
-        <div class="col-6">
-            <div class="form-group m-b-25">
-            <label for="name">@lang('view_pages.capacity') <span class="text-danger">*</span></label>
-            <input class="form-control" type="number" id="capacity" name="capacity" value="{{old('capacity')}}" required="" placeholder="@lang('view_pages.enter_capacity')" min="1">
-            <span class="text-danger">{{ $errors->first('capacity') }}</span>
-        </div>
-    </div>
+      
+    
+    
       <div class="col-6">
         <div class="form-group m-b-25">
             <label for="short_description">@lang('view_pages.short_description') <span class="text-danger">*</span></label>

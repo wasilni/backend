@@ -220,6 +220,9 @@ return array (
   'request' => 'Request',
   'trip_time' => 'Trip Time',
   'user_details' => 'User Details',
+    'ratingsuser' => 'ratings users',
+    'ratingsdriver' => 'ratings drivers',
+
   'rating' => 'Rating',
   'expiry_date' => 'Expiry Date',
   'enter_expiry_date' => 'Enter Expiry Date',
@@ -524,6 +527,37 @@ return array (
               
                 'rating'=> 'rating',
                  'ratings'=> 'ratings',
+                 'Completed_Rides'=> 'Completed Rides',
+                   'Cancelled_Rides'=> 'Cancelled Rides',
+                    'Filter'=> 'Filter',
+                    'Total_Amount'=> 'Total Amount',
+                    'Spend_Amount'=> 'Spend Amount',
+                    'Balance_Amount'=> 'Balance Amount',
+                    
+  'amount'=> 'amount',
+    'enter_amount'=> 'enter amount',
+    'Wallet_History'=>'Wallet History',
+    'remarks'=>'remarks',
+    'Today_Trip'=>'Todays Trip',
+       'Today_Earning'=>'Today Earning',
+      'Total_Trips'=>'Total Trips ',
+     'Total_Earnings'=>'Total Earnings',
+     'Trip_statistics'=>'Trip statistics',
+     'Ongoing trip Info',
+     'Ongoing_trip_Info'=>'Ongoing trip Info',
+     'Vehicle_No'=>'Vehicle_No',
+          'Pickup_details'=>'Pickup_details',
+          'Drop_details'=>'Drop details',
+                    'Trip_Status'=>'Trip Status ',
+                                        'Trip_Request'=>'Trip Request',
+
+
+
+
+                
+
+
+    
 
      
 

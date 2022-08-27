@@ -49,9 +49,10 @@ class RequestController extends Controller
 
       
          $RequestRatingsdriver=  RequestRating::where('request_id',$request->id)
-      ->where('driver_rating',1)->get();
+      ->where('user_rating',0)->get();
       
   
+   
         
         
 

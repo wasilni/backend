@@ -234,7 +234,8 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Today's Trip
+                        <h6> @lang('view_pages.Today_Trip')
+                            
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -249,7 +250,8 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Today's Earning
+                        <h6> @lang('view_pages.Today_Earning')
+                            
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-success"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -265,7 +267,8 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Total Trips
+                        <h6>@lang('view_pages.Total_Trips')
+                            
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -281,7 +284,7 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Total Earnings
+                        <h6>@lang('view_pages.Total_Earnings')
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-danger"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -295,7 +298,8 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>Wallet Amount
+                        <h6>@lang('view_pages.Wallet_Amount')
+                            
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-danger"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -313,7 +317,7 @@
                 <div class="box">
 
                     <div class="box-header with-border">
-                                <h3 class="font-weight-600">Driver Location :</h3>
+                                <h3 class="font-weight-600">@lang('view_pages.Driver_Location')   :</h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
                                     <li><a class="box-btn-slide" href="#"></a></li>
@@ -337,7 +341,7 @@
                 <!-- DONUT CHART -->
                 <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="font-weight-600">Total earnings</h3>
+                        <h3 class="font-weight-600">@lang('view_pages.Total_Earnings') </h3>
                         <ul class="box-controls pull-right">
                             <li><a class="box-btn-close" href="#"></a></li>
                             <li><a class="box-btn-slide" href="#"></a></li>
@@ -364,7 +368,7 @@
                                             <h4 class="font-weight-600">
                                                 {{$currency}} {{$total_overall_earnings}}
                                                 <br>
-                                                Total Earnings
+                                                @lang('view_pages.Total_Earnings')
                                             </h4>
                                         </div>
                                     </div>
@@ -373,7 +377,7 @@
                                 <div class="col-md-6">
                                     <div class="box box-body">
                                         <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                            <span style="color: #455a80">By Cash</span>
+                                            <span style="color: #455a80"> @lang('pages_names.By_Cash') </span>
                                             <span>{{$currency}} {{$overall_earning_cash}}</span>
                                         </div>
                                         <div class="progress progress-xxs mt-10 mb-0">
@@ -390,7 +394,7 @@
                                 <div class="col-md-6">
                                     <div class="box box-body">
                                         <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                            <span style="color: #455a80">By Wallet</span>
+                                            <span style="color: #455a80">@lang('pages_names.By_Wallet')   </span>
                                             <span>{{$currency}} {{$overall_earning_wallet}}</span>
                                         </div>
                                         <div class="progress progress-xxs mt-10 mb-0">
@@ -407,7 +411,7 @@
                                 <div class="col-md-6">
                                     <div class="box box-body">
                                         <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
-                                            <span style="color: #455a80">By Card/Online</span>
+                                            <span style="color: #455a80"> @lang('pages_names.By_Card_Online')</span>
                                             <span>{{$currency}} {{$overall_earning_card}}</span>
                                         </div>
                                         <div class="progress progress-xxs mt-10 mb-0">
@@ -430,7 +434,8 @@
                                             <h4 class="font-weight-600">
                                                 {{$currency}} {{$overall_earning_commision}}
                                                 <br>
-                                               Admin Commision
+                                                
+                                                @lang('pages_names.Admin_Commision')
                                             </h4>
                                         </div>
                                     </div>
@@ -445,7 +450,9 @@
                                             <h4 class="font-weight-600">
                                                {{$currency}} {{$overall_earning_driver_commision}}
                                                 <br>
-                                                Driver Earnings
+                                                
+                                                                                                @lang('pages_names.Driver_Earnings')
+
                                             </h4>
                                         </div>
                                     </div>
@@ -466,7 +473,7 @@
                 <!-- DONUT CHART -->
                  <div class="box">
                     <div class="box-header with-border">
-                        <h3 class="font-weight-600">Trip statistics</h3>
+                        <h3 class="font-weight-600"> @lang('view_pages.Trip_statistics')            </h3>
                         <ul class="box-controls pull-right">
                             <li><a class="box-btn-close" href="#"></a></li>
                             <li><a class="box-btn-slide" href="#"></a></li>
@@ -487,7 +494,7 @@
                                         <div class="inner">
                                             <h3>{{$total_completedTrips}}</h3>
 
-                                            <p>Completed Trips</p>
+                                            <p>     @lang('view_pages.completed_trip')        </p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa fa-pie-chart"></i>
@@ -500,7 +507,7 @@
                                         <div class="inner">
                                             <h3>{{$total_cancelledTrips}}</h3>
 
-                                            <p>Cancelled Trips</p>
+                                            <p> @lang('view_pages.cancelled_trip')    </p>
                                         </div>
                                         <div class="icon">
                                             <i class="fa fa-pie-chart"></i>
@@ -529,7 +536,7 @@
                     <div class="col-12">
                         <div class="box">
                             <div class="box-header with-border">
-                                <h3 class="font-weight-600">Ongoing trip Info</h3>
+                                <h3 class="font-weight-600">@lang('view_pages.Ongoing_trip_Info')</h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
                                     <li><a class="box-btn-slide" href="#"></a></li>
@@ -543,11 +550,11 @@
                                         data-page-size="10">
                                         <thead>
                                             <tr class="bg-dark">
-                                                <th>Vehicle No</th>
-                                                <th>Pickup details</th>
-                                                <th>Drop details</th>
-                                                <th>Trip Status</th>
-                                                <th>Trip Request</th>
+                                                <th>@lang('view_pages.Vehicle_No')  </th>
+                                                <th>@lang('view_pages.Pickup_details') </th>
+                                                <th>@lang('view_pages.Drop_details')</th>
+                                                <th>@lang('view_pages.Trip_Status')</th>
+                                                <th>@lang('view_pages.Trip_Request') </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -616,10 +623,10 @@
                                         <thead>
                                             <tr class="bg-dark">
                                                 <th>#</th>
-                                                <th>Vehicle No</th>
-                                                <th>Shift Start</th>
-                                                <th>Shift End</th>
-                                                <th>Shift Time</th>
+                                                <th>@lang('view_pages.Vehicle_No')  </th>
+                                                <th>@lang('view_pages.Shift_Start')  </th>
+                                                <th>@lang('view_pages.Shift_؛End')   </th>
+                                                <th>@lang('view_pages.Shift_Time')   </th>
                                             </tr>
                                         </thead>
                                         <tbody>

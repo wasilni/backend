@@ -70,17 +70,24 @@
     <!-- Start Page content -->
     <section class="content">
         <div class="row">
-            @foreach ($card as $item)
                 <div class="col-xl-4 col-md-6 col-12">
                     <div class="box box-body">
-                        <h5 class="text-capitalize">{{ $item['display_name'] }}</h5>
+                        <h5 class="text-capitalize">@lang('view_pages.Completed_Rides')</h5>
                         <div class="flexbox wid-icons mt-2">
-                            <span class="{{ $item['icon'] }} font-size-40"></span>
-                            <span class=" font-size-30">{{ $item['count'] }}</span>
+                            <span class="fa fa-flag-checkered text-green font-size-40"></span>
+                            <span class=" font-size-30">{{ $completedTrips }}</span>
                         </div>
                     </div>
                 </div>
-            @endforeach
+                  <div class="col-xl-4 col-md-6 col-12">
+                    <div class="box box-body">
+                        <h5 class="text-capitalize">@lang('view_pages.Cancelled_Rides')</h5>
+                        <div class="flexbox wid-icons mt-2">
+                            <span class="fa fa-ban text-red font-size-40"></span>
+                            <span class="font-size-30">{{$cancelledTrips }}</span>
+                        </div>
+                    </div>
+                </div>
         </div>
 
          <input type="hidden" id="items" name="items" value="{{$items}}">
@@ -113,7 +120,8 @@
                             <div class="col-5 col-md-1 text-left">
                                 <button class="btn btn-outline btn-sm btn-danger py-2" type="button" data-toggle="modal"
                                     data-target="#request-modal">
-                                    Filter
+                                    @lang('view_pages.Filter')
+                                    
                                 </button>
                             </div>
 

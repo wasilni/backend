@@ -139,11 +139,18 @@ class DashboardController extends BaseController
             $currency = env('SYSTEM_DEFAULT_CURRENCY');
         }
 
-         $RequestRating=  RequestRating::take(5)->get();
+         $RequestRatinguser=  RequestRating::take(5)
+         ->where('user_rating',0)->get();
+
+            $RequestRatingdriver=  RequestRating::take(5)
+         ->where('user_rating',1)->get();
+
+         
+
 
   
 
 
-        return view('admin.dashboard', compact('page', 'main_menu','currency', 'sub_menu','total_drivers','total_users','trips','todayEarnings','overallEarnings','data','RequestRating'));
+        return view('admin.dashboard', compact('page', 'main_menu','currency', 'sub_menu','total_drivers','total_users','trips','todayEarnings','overallEarnings','data','RequestRatinguser','RequestRatingdriver'));
     }
 }

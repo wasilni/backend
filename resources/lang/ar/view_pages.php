@@ -417,6 +417,40 @@ return array (
                 'rating'=> 'تقييم',
                    'ratings'=> 'تقييمات',
 
+    'ratingsuser' => 'تقييمات المستخدمين',
+        'ratingsdriver' => 'تقييمات السائقين ',
+
+                 'Completed_Rides'=> 'جولات مكتملة ',
+                   'Cancelled_Rides'=> 'جولات ملغية  ',
+                    'Filter'=> 'فلترة ',
+ 'Total_Amount'=> 'اجمالى الكمية ',
+                    'Spend_Amount'=> 'الكمية المستهلكة ',
+                    'Balance_Amount'=> 'كمية الميزانية',
+  'amount'=> 'الكمية',
+ 'amount'=> 'الكمية',
+    'enter_amount'=> 'ادخل الكمية ',
+  'submit' => 'ادخل',
+      'Wallet_History'=>'كشف المحفظة',
+  'transaction_id' => ' رقم المعاملة',
+
+    'remarks'=>'ملاحظات',
+        'Today_Trip'=>'رحلات اليوم ',
+        
+        'Today_Earning'=>'ربح اليوم ',
+                        'Total_Trips'=>'معدل الرحلات  ',
+                                'Total_Earnings'=>'اجمالى الربح ',
+                                'Wallet_Amount'=>' ميزانيةالمحفظة',
+                                                                                                'Driver_Location'=>'موقع السائق  ',
+     'Trip_statistics'=>'احصائيات الرحلة ',
+     'Ongoing_trip_Info'=>'معلومات الرحلة الجارية',
+     'Vehicle_No'=>'رقم المركبة',
+          'Pickup_details'=>'تفاصيل الالتقاط',
+          'Drop_details'=>'تفاصيل الإسقاط ',
+                    'Trip_Status'=>'حالات الرحلة  ',
+                                        'Trip_Request'=>'طلب الرحلة ',
+                                         'Shift_Start'=>'بدء الشفت  ',
+                                        'Shift_؛End'=>'نهاية الشفت  ؛ ',
+                                        'Shift_Time'=>'وقت الشفت  ',
 
 
 

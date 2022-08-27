@@ -15,12 +15,12 @@ class CreateLevelsTable extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->integer('name')->default('pronze');
+            $table->string('name')->default('pronze');
             $table->integer('no_point')->default(0);
             $table->string('no_trip')->default(0);
 
 
-           
+
             $table->timestamps();
         });
     }

@@ -13,17 +13,13 @@ class CreatePointsTable extends Migration
      */
     public function up()
     {
-        Schema::create('levels', function (Blueprint $table) {
-                     
 
+        Schema::create('points', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('no_point')->default(0);
             $table->integer('price')->default(0);
             $table->string('typeuses');
             $table->string('typeusesapp');
-
-
-           
             $table->timestamps();
         });
     }

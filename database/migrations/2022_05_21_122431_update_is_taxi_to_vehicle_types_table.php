@@ -14,9 +14,10 @@ class UpdateIsTaxiToVehicleTypesTable extends Migration
     public function up()
     {
         Schema::table('vehicle_types', function (Blueprint $table) {
-    
-           $table->enum('is_taxi',['taxi','delivery'])->nullable();
+            if (!Schema::hasColumn('vehicle_types','is_taxi')) {
 
+           $table->enum('is_taxi',['taxi','delivery'])->nullable();
+            }
         });
     }
 

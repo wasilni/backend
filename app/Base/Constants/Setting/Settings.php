@@ -8,6 +8,8 @@ class Settings
     const SMS = 'sms';
     const LOGO = 'logo';
     const FAVICON = 'favicon';
+    const REGISTER_POINT = 'register_point';
+    const TRIP_POINT = 'trip_point';
     const GOOGLE_BROWSER_KEY ='google_browser_key';
     const APP_NAME ='app_name';
     const SERVICE_TAX ='service_tax';
@@ -45,7 +47,7 @@ class Settings
     const FIREBASE_MESSAGIN_SENDER_ID='firebase-messaging-sender-id';
     const FIREBASE_APP_ID='firebase-app-id';
     const FIREBASE_MEASUREMENT_ID='firebase-measurement-id';
-    
+
     const ENABLE_PAYSTACK='enable-paystack';
     const PAYSTACK_ENVIRONMENT='paystack-environment';
     const PAYSTACK_TEST_SECRET_KEY='paystack-test-secret-key';
@@ -69,7 +71,7 @@ class Settings
     const CASH_FREE_SECRET_KEY='cash_free_secret_key';
     const CASH_FREE_PRODUCTION_SECRET_KEY='cash_free_production_secret_key';
     const CASH_FREE_TEST_CLIENT_ID_FOR_PAYOUT = 'cash_free_test_app_id_for_payout';
-    const CASH_FREE_PRODUCTION_CLIENT_ID_FOR_PAYOUT = 'cash_free_production_app_id_for_payout'; 
+    const CASH_FREE_PRODUCTION_CLIENT_ID_FOR_PAYOUT = 'cash_free_production_app_id_for_payout';
     const CASH_FREE_TEST_CLIENT_SECRET_FOR_PAYOUT = 'cash_free_test_secret_for_payout';
     const CASH_FREE_PRODUCTION_CLIENT_SECRET_FOR_PAYOUT = 'cash_free_production_secret_for_payout';
     const ENABLE_RAZOR_PAY='enable-razor-pay';
@@ -86,5 +88,5 @@ class Settings
     const PAYSTACK_PRODUCTION_PUBLISHABLE_KEY='paystack_production_publishable_key';
     const ENABLE_DIGITAL_SIGNATURE_AT_THE_END_OF_RIDE = 'enable_digital_signatur_at_the_end_of_ride';
 
-   
+
 }

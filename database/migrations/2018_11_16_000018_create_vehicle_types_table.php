@@ -17,6 +17,10 @@ class CreateVehicleTypesTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('service_location_id');
             $table->string('name');
+            $table->string('description');
+            $table->string('short_description');
+            $table->string('supported_vehicles');
+            $table->enum('is_taxi',['taxi','delivery'])->nullable();
             $table->string('icon')->nullable();
             $table->integer('capacity')->default(0);
             $table->boolean('is_accept_share_ride')->default(false);
@@ -30,8 +34,8 @@ class CreateVehicleTypesTable extends Migration
                     ->onDelete('cascade');
 
         });
-        
-        
+
+
          VehicleType::create([
             // 'name' => $data['name'],
             'id' => '63060678-3ed7-4d98-9729-efd5b4c43e96',
@@ -42,7 +46,7 @@ class CreateVehicleTypesTable extends Migration
             'short_description' => 'للنساء فقط',
             'supported_vehicles' => 'للنساء فقط',
             'is_taxi' => 'taxi',
-            
+
 
 
 
@@ -57,7 +61,7 @@ class CreateVehicleTypesTable extends Migration
             'short_description' => ' ديل 2020 فادنى',
             'supported_vehicles' => ' ديل 2020 فادنى',
             'is_taxi' => 'taxi',
-            
+
 
 
 
@@ -72,7 +76,7 @@ class CreateVehicleTypesTable extends Migration
             'short_description' => '2020 فاعلى ',
             'supported_vehicles' => ' 2020 فاعلى',
             'is_taxi' => 'taxi',
-            
+
 
 
 
@@ -87,6 +91,6 @@ class CreateVehicleTypesTable extends Migration
     public function down()
     {
         Schema::dropIfExists('vehicle_types');
-        
+
     }
 }

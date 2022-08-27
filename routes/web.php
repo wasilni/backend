@@ -31,3 +31,22 @@ Route::view('/adhoc3', 'adhoc/adhoc3')->name('adhoc3');
 
 Route::get('/adhoc', 'AdhocController@index');
 Route::get('/adhoc2', 'AdhocController@create');
+
+Route::get('/test-payment', function(){
+    $telrManager = new \TelrGateway\TelrManager();
+
+    $billingParams = [
+            'first_name' => 'Moustafa Gouda',
+            'sur_name' => 'Bafi',
+            'address_1' => 'Gnaklis',
+            'address_2' => 'Gnaklis 2',
+            'city' => 'Alexandria',
+            'region' => 'San Stefano',
+            'zip' => '11231',
+            'country' => 'EG',
+            'email' => 'example@company.com',
+        ];
+
+    return $telrManager->pay('1', '10', 'DESCRIPTION ...', $billingParams)->redirect();
+
+});

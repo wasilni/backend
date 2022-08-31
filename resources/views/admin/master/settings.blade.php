@@ -47,8 +47,8 @@
 
                     <form action="{{url('system/settings')}}" method="post" enctype="multipart/form-data" >
                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                        
-                        
+
+
 
                     <div class="tab-content p-10">
 
@@ -70,10 +70,10 @@
 
                                     <?php $group_count=1;
                                           $group_total_count= count($group_value);
-                                          
+
                                           foreach ($group_value as $setting_name) { ?>
-                                          
-                                          
+
+
 
                                 <div class="col-md-12">
                                     <div class="form-group">
@@ -93,25 +93,25 @@
                                                 } else {
                                                     $sel="";
                                                 } ?>
-                                            <option style="text-align: left;" value="<?=$option_value; ?>" <?=$sel?> ><?php echo trans('view_pages.'.$option_name); ?></option>
+                                            <option style=":@if(app()->getLocale()=='ar') text-align: right; @else text-align: left; @endif" value="<?=$option_value; ?>" <?=$sel?> ><?php echo trans('view_pages.'.$option_name); ?></option>
                                             <?php
                                             } ?>
                                         </select>
-                                     
-                                        
 
-                                        
-                                 
-                                
+
+
+
+
+
                                         <?php }
                       /*text box*/      elseif ($setting_name['field']=="text") { ?>
                                         <input name="<?=$setting_name['name'];?>" type="text" value='<?=$setting_name['value']?>' class="form-control" id="title">
-                                        
-                                        
-                                        
-                                        
-                                      
-                                
+
+
+
+
+
+
 
                                         <?php }
                       /*image box*/     elseif ($setting_name['field']=="file") { ?>

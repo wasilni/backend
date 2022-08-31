@@ -266,7 +266,7 @@ return array (
     'has_expiry_date' => 'تاريخ الانتهاء',
       'add_package_type' => 'اضافة',
         'short_description' => ' وصف قصير ',
-        
+
   'currency_code' => 'رمز العملة',
   'add_airport' => 'اضافة مطار',
 'Filter_drivers'=>'فلترة سائقين ',
@@ -328,15 +328,15 @@ return array (
   'supported_vehicles' => ' المركبات المدعومة',
 
   'no_results' => 'لا يوجد بيانات',
-  
+
  'send_push' => 'ارسال اشعار',
- 
+
   'message_en' => '  مسج باللغة الانجليزية',
-   'message_ar' => 'مسج باللغة العربية  ', 
-   
+   'message_ar' => 'مسج باللغة العربية  ',
+
     'push_title_en' => 'عنوان الاشعار باللغة الانجليزية  ',
    'push_title_ar' => 'عنوان الاشعار باللغة العربية  ',
-   
+
     'My_Profile'=>' الحساب الشخصى',
     'Logout'=>'خروج',
     'register_point'=>'نقاط  تسجيل المستخدم الجديد',
@@ -344,7 +344,7 @@ return array (
 'invitation_point'=>'نقاط الدعوة ',
 
   'technical_commisssion'=>'العمولة التقنية',
-  
+
     'tansport_type'=>'نوع النقل',
 'select_tansport_type'=>'اختر نوع النقل ',
 'taxi'=>'تاكسى',
@@ -435,7 +435,7 @@ return array (
 
     'remarks'=>'ملاحظات',
         'Today_Trip'=>'رحلات اليوم ',
-        
+
         'Today_Earning'=>'ربح اليوم ',
                         'Total_Trips'=>'معدل الرحلات  ',
                                 'Total_Earnings'=>'اجمالى الربح ',
@@ -450,7 +450,17 @@ return array (
                                         'Trip_Request'=>'طلب الرحلة ',
                                          'Shift_Start'=>'بدء الشفت  ',
                                         'Shift_؛End'=>'نهاية الشفت  ؛ ',
-                                        'Shift_Time'=>'وقت الشفت  ',
+                                        'Shift_Time'=>'وقت الشفت ',
+                                          'completed_trip' => 'رحلات مكتملة ',
+                                            'cancelled_trip' => 'رحلات مكتملة ',
+
+                                    'Shift_History'=>'تاريخ التحول  ',
+                                    'Upcoming_Rides'=>'الرحلات القادمة ',
+                                      'telr_settings'=>'اعدادات بوابة دفع تلر  ',
+                                     'enable-telr'=>'مكن بوابة الدفع تلر  ',
+                                     'telr-store-id'=>'store-id ',
+'telr-auth-key'=>'telr-auth-key',
+
 
 
 

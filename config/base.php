@@ -276,6 +276,9 @@ return [
         ],
         'stripe' => [
             'class' => 'App\Base\Payment\Stripe'
+        ],
+        'telr' => [
+            'class' => 'App\Base\Payment\Telr'
         ]
     ],
 

@@ -520,11 +520,11 @@ return array (
 'discount_percent'=>'discount percent',
 
       'push_image'=>'push image',
-      
+
        'map_views'=>'map views',
        'driver_details'=>'driver details',
               'notsatisfied'=>'not satisfied ',
-              
+
                 'rating'=> 'rating',
                  'ratings'=> 'ratings',
                  'Completed_Rides'=> 'Completed Rides',
@@ -533,7 +533,7 @@ return array (
                     'Total_Amount'=> 'Total Amount',
                     'Spend_Amount'=> 'Spend Amount',
                     'Balance_Amount'=> 'Balance Amount',
-                    
+
   'amount'=> 'amount',
     'enter_amount'=> 'enter amount',
     'Wallet_History'=>'Wallet History',
@@ -550,15 +550,22 @@ return array (
           'Drop_details'=>'Drop details',
                     'Trip_Status'=>'Trip Status ',
                                         'Trip_Request'=>'Trip Request',
+                                    'Shift_History'=>'Shift History ',
+                                    'Upcoming_Rides'=>'Upcoming Rides ',
+                                     'telr_settings'=>'telr settings ',
+                                     'enable-telr'=>'enable telr ',
+                                     'telr-store-id'=>'store-id ',
+'telr-auth-key'=>'telr-auth-key',
 
 
 
 
-                
 
 
-    
 
-     
+
+
+
+
 
 );

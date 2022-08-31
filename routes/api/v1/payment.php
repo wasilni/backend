@@ -42,7 +42,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     /**
      * Braintree Payment Gateway
-     * 
+     *
      * */
     Route::prefix('braintree')->namespace('Braintree')->group(function(){
 
@@ -53,7 +53,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     /**
      * Stripe Payment Gateway
-     * 
+     *
      * */
     Route::prefix('stripe')->namespace('Stripe')->group(function(){
 
@@ -64,7 +64,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     /**
      * Razerpay Payment Gateway
-     * 
+     *
      * */
     Route::prefix('razerpay')->namespace('Razerpay')->group(function(){
 
@@ -73,7 +73,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     /**
      * PayMob Payment Gateway
-     * 
+     *
      * */
 
     Route::prefix('paymob')->namespace('Paymob')->group(function(){
@@ -83,7 +83,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     /**
      * Paystack Payment Gateway
-     * 
+     *
      * */
     Route::prefix('paystack')->namespace('Paystack')->group(function(){
         Route::post('initialize','PaystackController@initialize');
@@ -93,7 +93,7 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
       /**
      * Flutterwave Payment Gateway
-     * 
+     *
      * */
     Route::prefix('flutter-wave')->namespace('FlutterWave')->group(function(){
         // Route::post('initialize','FlutterWaveController@initialize');
@@ -101,9 +101,35 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     });
 
+    Route::prefix('telr')->namespace('telr')->group(function(){
+        // Route::post('initialize','FlutterWaveController@initialize');
+        Route::post('add-money', 'TelrController@addMoneyToWallet');
+
+    });
+
+
+    Route::get('/test-payment', function(){
+        $telrManager = new \TelrGateway\TelrManager();
+
+        $billingParams = [
+                'first_name' => 'Moustafa Gouda',
+                'sur_name' => 'Bafi',
+                'address_1' => 'Gnaklis',
+                'address_2' => 'Gnaklis 2',
+                'city' => 'Alexandria',
+                'region' => 'San Stefano',
+                'zip' => '11231',
+                'country' => 'EG',
+                'email' => 'example@company.com',
+            ];
+
+        return $telrManager->pay('1', '10', 'DESCRIPTION ...', $billingParams)->redirect();
+
+    });
+
     /**
      * Cashfree Payment Gateway
-     * 
+     *
      * */
     Route::prefix('cashfree')->namespace('Cashfree')->group(function(){
         Route::post('generate-cftoken','CashfreePaymentController@generateCftoken');
@@ -113,5 +139,5 @@ Route::prefix('payment')->namespace('Payment')->middleware('auth')->group(functi
 
     });
 
-    
+
 });

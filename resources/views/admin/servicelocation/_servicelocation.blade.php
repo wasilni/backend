@@ -16,6 +16,11 @@
     <span style="float: right;">
     </span>
     </th>
+
+    <th> @lang('view_pages.name_ar')
+        <span style="float: right;">
+        </span>
+        </th>
     <th> @lang('view_pages.currency_symbol')
     <span style="float: right;">
     </span>
@@ -41,6 +46,8 @@
     <tr>
     <td>{{ $i++ }} </td>
     <td>{{$result->name}}</td>
+    <td>{{$result->name_ar}}</td>
+
     <td>{{$result->currency_symbol}}</td>
     <td>{{$result->currency_code}}</td>
     @if($result->active)

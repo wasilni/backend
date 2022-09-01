@@ -60,7 +60,7 @@ class ServiceLocationController extends BaseController
 
     public function store(CreateServiceLocationRequest $request)
     {
-        $created_params = $request->only(['name','currency_name','currency_code','currency_symbol','country','timezone']);
+        $created_params = $request->only(['name','name_ar','currency_name','currency_code','currency_symbol','country','timezone']);
         $created_params['active'] = 1;
 
         $created_params['company_key'] = auth()->user()->company_key;
@@ -102,7 +102,7 @@ class ServiceLocationController extends BaseController
     public function delete(ServiceLocation $serviceLocation)
     {
         if(env('APP_FOR')!='demo'){
-        $serviceLocation->delete();                        
+        $serviceLocation->delete();
         }
 
         $message = trans('succes_messages.service_location_deleted_succesfully');

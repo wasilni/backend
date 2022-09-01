@@ -76,8 +76,8 @@ class Zone extends Model
     public function zoneType()
     {
         return $this->hasMany(ZoneType::class, 'zone_id', 'id');
-    } 
-   
+    }
+
 
     public function zoneSurge()
     {

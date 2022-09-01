@@ -16,6 +16,8 @@ class CreateServiceLocationsTable extends Migration
         Schema::create('service_locations', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('name');
+            $table->string('name_ar');
+
             $table->string('currency_name')->nullable();
             $table->string('currency_code');
             $table->string('currency_symbol');

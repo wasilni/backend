@@ -557,6 +557,8 @@ return array (
                                      'telr-store-id'=>'store-id ',
 'telr-auth-key'=>'telr-auth-key',
 
+'enter_currency_code'=>'enter currency code',
+'name_ar'=>'  name arabic language    ',
 
 
 

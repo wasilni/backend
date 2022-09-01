@@ -17,7 +17,7 @@ class ServiceLocation extends Model
 
     protected $table = 'service_locations';
 
-    protected $fillable = ['name','currency_name','currency_code','currency_symbol','country','timezone','active','company_key'];
+    protected $fillable = ['name','name_ar','currency_name','currency_code','currency_symbol','country','timezone','active','company_key'];
 
 
     protected $searchable = [

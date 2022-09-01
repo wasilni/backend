@@ -51,6 +51,20 @@
         </div>
     </div>
 
+
+
+    <div class="col-sm-6">
+        <div class="form-group">
+        <label for="name">@lang('view_pages.name_ar') <span class="text-danger">*</span></label>
+        <input class="form-control" type="text" id="name" name="name_ar" value="{{old('name_ar')}}" required="" placeholder="@lang('view_pages.enter_name')">
+        <span class="text-danger">{{ $errors->first('name_ar') }}</span>
+
+    </div>
+</div>
+
+
+
+
     <input type="hidden" name="currency_name" id="currency_name">
 
     <div class="col-sm-6">
@@ -58,7 +72,7 @@
             <label for="currency_code">@lang('view_pages.currency_code') <span class="text-danger">*</span></label>
             <input class="form-control" type="text" id="currency_code" name="currency_code" value="{{old('currency_code')}}" required="" placeholder="@lang('view_pages.enter') @lang('view_pages.currency_code')" list="currency_code_list" autocomplete="off">
             <datalist id="currency_code_list">
-                
+
             </datalist>
             <span class="text-danger">{{ $errors->first('currency_code') }}</span>
 
@@ -70,7 +84,7 @@
             <label for="currency_symbol">@lang('view_pages.currency_symbol') <span class="text-danger">*</span></label>
             <input class="form-control" type="text" id="currency_symbol" name="currency_symbol" value="{{old('currency_symbol')}}" required="" placeholder="@lang('view_pages.enter_currency_symbol')" list="currency_symbol_list" autocomplete="off">
             <datalist id="currency_symbol_list">
-                
+
             </datalist>
             <span class="text-danger">{{ $errors->first('currency_symbol') }}</span>
 
@@ -118,7 +132,7 @@
 </div>
 <!-- content -->
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 $(document).on('change','#country',function(e){
     var id = $(this).val();
 

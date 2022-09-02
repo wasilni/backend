@@ -23,6 +23,7 @@
 
             @else
             {{$result->question_ar}}
+            @endif
         </td>
             <td>
 
@@ -32,6 +33,7 @@
 
             @else
             {{$result->answer_ar}}
+            @endif
 
 
           </td>

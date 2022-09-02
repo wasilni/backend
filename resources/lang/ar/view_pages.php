@@ -463,6 +463,10 @@ return array (
 
 'enter_currency_code'=>'ادخل رمز العملة  ',
 'name_ar'=>'الاسم باللغة العربية    ',
+'Active_Status'=>'الحالات ',
+'Approval_Status'=>'حالات الاعتماد ',
+'Online_Status'=>'حالات الاتصال  ',
+'all' => 'كل',
 
 
 

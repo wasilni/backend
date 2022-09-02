@@ -132,12 +132,12 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>  {{ trans('pages_names.Drivers_registered') }} 
+                        <h6>  {{ trans('pages_names.Drivers_registered') }}
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
                             {{ $total_drivers[0]['total'] }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="{{url('drivers')}}"> {{ trans('pages_names.See_all') }}
-                            
+
                             <span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
@@ -149,13 +149,13 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>{{ trans('pages_names.Drivers_Approved') }} 
+                        <h6>{{ trans('pages_names.Drivers_Approved') }}
                            <span class="badge badge-soft-success rounded-pill ml-2">{{number_format($total_drivers[0]['approve_percentage'],2)}}%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-success"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
                             {{ $total_drivers[0]['approved'] }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="{{url('drivers')}}"> {{ trans('pages_names.See_all') }}
-                            
+
                             <span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
@@ -168,8 +168,8 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>{{ trans('pages_names.Drivers_waiting_for_approval') }} 
-                            
+                        <h6>{{ trans('pages_names.Drivers_waiting_for_approval') }}
+
                             <span class="badge badge-soft-success rounded-pill ml-2">{{number_format($total_drivers[0]['decline_percentage'],2)}}%</span>
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
@@ -190,13 +190,13 @@
                     </div>
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
-                        <h6>{{ trans('pages_names.Users_registered') }} 
-                        
+                        <h6>{{ trans('pages_names.Users_registered') }}
+
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-danger"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
                             {{ $total_users }}</div><a class="font-weight-semi-bold fs--1 text-nowrap" href="{{url('users')}}"> {{ trans('pages_names.See_all') }}
-                            
+
                             <span class="fa fa-angle-right ml-1" data-fa-transform="down-1"></span></a>
                     </div>
                 </div>
@@ -211,7 +211,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="font-weight-600">
-                                    {{ trans('view_pages.ratingsdriver') }} 
+                                    {{ trans('view_pages.ratingsdriver') }}
                                     </h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
@@ -222,7 +222,7 @@
 
                             <div class="box-body row">
                                 <div id="js-request-partial-target" class="table-responsive">
-                                   
+
                 <div class="box-body">
                     <table class="table table-hover">
                         <thead>
@@ -235,25 +235,52 @@
                         </thead>
                         <tbody>
                              @foreach($RequestRatinguser as $RequestRatingsuse)
-                            <tr>  
-                           
-                            
+                            <tr>
+
+
         <td><a href="{{url('requests/'.$RequestRatingsuse->request_id)}}">
             {{ $RequestRatingsuse->requestDetail->driverDetail
                       ->name }}</a></td>
                     <td>{{ $RequestRatingsuse->rating }}</td>
-                     <td>{{ $RequestRatingsuse->comment }}</td>
+
+                     <td>
+                          @if($RequestRatingsuse->comment == null)
+                          -
+
+                          @else
+                          {{ $RequestRatingsuse->comment }}
+                          @endif
+                          </td>
                @if(App::getLocale() == 'en')
-                      <td>{{ $RequestRatingsuse->not_statisfied_en}}</td>
+                      <td> @if($RequestRatingsuse->not_statisfied_en == 'null')
+
+                           -
+
+                          @else
+                          {{ $RequestRatingsuse->not_statisfied_en}}
+                          @endif
+
+
+
+                         </td>
                       @else
-                       <td>{{ $RequestRatingsuse->not_statisfied_ar }}</td>
+                       <td>
+                            @if($RequestRatingsuse->not_statisfied_ar == 'null')
+
+                           -
+
+                          @else
+                          {{ $RequestRatingsuse->not_statisfied_ar}}
+                          @endif
+
+                          </td>
                       @endif
                                @endforeach
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                                </div>                                
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -261,9 +288,9 @@
             </div>
         </div>
         @endif
-        
-        
-        
+
+
+
             @if(!auth()->user()->hasRole('owner'))
         <div class="row g-3">
             <div class="col-md-12">
@@ -272,7 +299,7 @@
                         <div class="box">
                             <div class="box-header with-border">
                                 <h3 class="font-weight-600">
-                                    {{ trans('view_pages.ratingsuser') }} 
+                                    {{ trans('view_pages.ratingsuser') }}
                                     </h3>
                                 <ul class="box-controls pull-right">
                                     <li><a class="box-btn-close" href="#"></a></li>
@@ -293,16 +320,44 @@
                         </thead>
                         <tbody>
                              @foreach($RequestRatingdriver as $RequestRatingsdrive)
-                            <tr > 
-                            
+                            <tr >
+
                       <td><a  href="{{url('requests/'.$RequestRatingsdrive->request_id)}}">{{ $RequestRatingsdrive->requestDetail->userDetail
                       ->name }}</a> </td>
                     <td>{{ $RequestRatingsdrive->rating }}</td>
-                     <td>{{ $RequestRatingsdrive->comment }}</td>
+                     <td>
+
+                           @if($RequestRatingsdrive->comment == null)
+                           -
+                          @else
+                          {{ $RequestRatingsdrive->comment }}
+                          @endif
+
+                          </td>
                @if(App::getLocale() == 'en')
-                      <td>{{ $RequestRatingsdrive->not_statisfied_en}}</td>
+                      <td>
+
+                          @if($RequestRatingsdrive->not_statisfied_en == 'null')
+
+                           -
+
+                          @else
+                          {{ $RequestRatingsdrive->not_statisfied_en}}
+                          @endif
+
+
+                        </td>
                       @else
-                       <td>{{ $RequestRatingsdrive->not_statisfied_ar }}</td>
+                       <td>
+                             @if($RequestRatingsdrive->not_statisfied_ar == 'null')
+
+                           -
+
+                          @else
+                          {{ $RequestRatingsdrive->not_statisfied_ar}}
+                          @endif
+
+                      </td>
                       @endif
                                @endforeach
                            </tr>
@@ -348,7 +403,7 @@
                                                         {{$currency}} {{$todayEarnings[0]['total']}}
                                                         <br>
                     {{ trans('pages_names.Today_Earnings') }}
-                                                        
+
                                                     </h4>
                                                 </div>
                                             </div>
@@ -364,7 +419,7 @@
                                                         {{$currency}} {{$todayEarnings[0]['cash']}}
 
                                                         <br>
-                                     {{ trans('pages_names.By_Cash')}}   
+                                     {{ trans('pages_names.By_Cash')}}
                                                     </h4>
                                                 </div>
                                             </div>
@@ -380,9 +435,9 @@
                                                         {{$currency}} {{$todayEarnings[0]['wallet']}}
 
                                                         <br>
-                                                        
-                                            {{ trans('pages_names.By_Wallet')}} 
-                                                        
+
+                                            {{ trans('pages_names.By_Wallet')}}
+
                                                     </h4>
                                                 </div>
                                             </div>
@@ -398,8 +453,8 @@
                                                         {{$currency}} {{$todayEarnings[0]['card']}}
 
                                                         <br>
-                                          {{ trans('pages_names.By_Card_Online')}} 
-                                                        
+                                          {{ trans('pages_names.By_Card_Online')}}
+
                                                     </h4>
                                                 </div>
                                             </div>
@@ -415,13 +470,13 @@
                                                         {{$currency}} {{$todayEarnings[0]['admin_commision']}}
 
                                                         <br>
-                                      {{ trans('pages_names.Admin_Commision')}} 
-                                                        
+                                      {{ trans('pages_names.Admin_Commision')}}
+
                                                     </h4>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+
                                           <div class="col-md-6">
                                             <div class="info-box">
                                                 <span class="info-box-icon rounded" style="background-color:#ffb22b !important"><i
@@ -432,15 +487,15 @@
                                                         {{$currency}} {{$todayEarnings[0]['tchnical_commision']}}
 
                                                         <br>
-                                      {{ trans('pages_names.technical_commisssion')}} 
-                                                        
+                                      {{ trans('pages_names.technical_commisssion')}}
+
                                                     </h4>
                                                 </div>
                                             </div>
                                         </div>
-                                        
-                                        
-                                        
+
+
+
 
                                         <div class="col-md-6">
                                             <div class="info-box">
@@ -450,8 +505,8 @@
                                                     <h4 class="font-weight-600">
                                                         {{$currency}} {{$todayEarnings[0]['driver_commision']}}
                                                         <br>
-                                       {{ trans('pages_names.Driver_Earnings')}} 
-                                                       
+                                       {{ trans('pages_names.Driver_Earnings')}}
+
                                                     </h4>
                                                 </div>
                                             </div>
@@ -507,7 +562,7 @@
                                         <div class="font-size-18 flexbox align-items-center" style="color: #7460ee">
                                             <span style="color: #455a80">
                                                  {{ trans('pages_names.By_Cash')}}
-                                                
+
                                                  </span>
                                             <span>{{$currency}} {{$overallEarnings[0]['cash']}}</span>
 
@@ -575,7 +630,7 @@
                                                 {{$currency}} {{$overallEarnings[0]['admin_commision']}}
                                                 <br>
                                 {{ trans('pages_names.Admin_Commision')}}
-                                                
+
                                             </h4>
                                         </div>
                                     </div>
@@ -591,8 +646,8 @@
                                                 {{$currency}} {{$overallEarnings[0]['driver_commision']}}
                                                 <br>
                                      {{ trans('pages_names.Driver_Earnings')}}
-                                                
-                                               
+
+
                                             </h4>
                                         </div>
                                     </div>
@@ -632,7 +687,7 @@
                                                 <span class="font-size-40 font-weight-200">{{$trips[0]['total_cancelled']}}</span>
                                             </div>
                                             <div class="text-right">
-                                                
+
                                 {{ trans('pages_names.Total_Request_Cancelled')}}
                                                 </div>
                                         </div>
@@ -666,7 +721,7 @@
                                                 <span class="font-size-40 font-weight-200">{{$trips[0]['driver_cancelled']}}</span>
                                             </div>
                                             <div class="text-right">
-                                                
+
                                                                                 {{ trans('pages_names.Cancelled_by_Driver')}}
 
 </div>
@@ -738,7 +793,7 @@
                             pointHighlightStroke: "#26c6da",
                             data: overallEarning['values']
                         },
-                       
+
 
                     ]
                 };

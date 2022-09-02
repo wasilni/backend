@@ -559,8 +559,9 @@ return array (
 
 'enter_currency_code'=>'enter currency code',
 'name_ar'=>'  name arabic language    ',
-
-
+'Active_Status'=>'Active Status',
+'Approval_Status'=>'Approval Status',
+'Online_Status'=>'Online Status ',
 
 
 

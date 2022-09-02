@@ -239,7 +239,7 @@ class PaymentController extends BaseController
         }
 
         $enable_stripe = false;
-        
+
         if(get_settings(Settings::STRIPE_ENVIRONMENT)=='test'){
 
             $stripe_environment = 'test';
@@ -255,38 +255,51 @@ class PaymentController extends BaseController
         }
 
          $enable_paystack = false;
-        
+
         if(get_settings(Settings::ENABLE_PAYSTACK)==1){
 
             $enable_paystack = true;
         }
 
         $enable_flutter_wave = false;
-        
+
         if(get_settings(Settings::ENABLE_FLUTTER_WAVE)==1){
 
             $enable_flutter_wave = true;
         }
 
         $enable_cashfree = false;
-        
+
         if(get_settings(Settings::ENABLE_CASH_FREE)==1){
 
             $enable_cashfree = true;
         }
 
         $enable_razor_pay = false;
-        
+
         if(get_settings(Settings::ENABLE_RAZOR_PAY)==1){
 
             $enable_razor_pay = true;
         }
 
          $enable_paymob = false;
-        
+
         if(get_settings(Settings::ENABLE_PAYMOB)==1){
 
             $enable_paymob = true;
+        }
+
+
+        if(get_settings(Settings::ENABLE_PAYMOB)==1){
+
+            $enable_paymob = true;
+        }
+
+
+
+        if(get_settings(Settings::ENABLE_TELR)==1){
+
+            $ENABLE_TELR = true;
         }
 
 
@@ -314,6 +327,7 @@ class PaymentController extends BaseController
             'cash_free'=>$enable_cashfree,
             'flutter_wave'=>$enable_flutter_wave,
             'paymob'=>$enable_paymob,
+            'teler'=>$ENABLE_TELR,
             'bank_info_exists'=>$bank_info_exists,
             'stripe_environment'=>$stripe_environment,
             'stripe_test_publishable_key'=>$stripe_test_publishable_key,
@@ -333,18 +347,18 @@ class PaymentController extends BaseController
 
 
         ]);
-        
+
         // return $this->respondSuccess($result, 'wallet_history_listed');
     }
 
     /**
      * Wallet Withdrawal Requests LIst
-     * 
+     *
      * */
     public function withDrawalRequests()
-    {   
+    {
         if(access()->hasRole(Role::USER)){
-            
+
         $user = auth()->user();
 
         $query = WalletWithdrawalRequest::where('user_id',$user->id);
@@ -380,9 +394,9 @@ class PaymentController extends BaseController
 
     /**
      * Request for withdrawal
-     * @bodyParam requested_amount double required  amount entered by user 
-     * 
-     * 
+     * @bodyParam requested_amount double required  amount entered by user
+     *
+     *
      * */
     public function requestForWithdrawal(Request $request){
 
@@ -417,7 +431,7 @@ class PaymentController extends BaseController
             }
 
         }else{
-            
+
             $user_info = auth()->user()->driver;
 
             $currency_code = auth()->user()->driver->serviceLocation->currency_symbol;
@@ -445,7 +459,7 @@ class PaymentController extends BaseController
 
         }
 
-        
+
 
         WalletWithdrawalRequest::create($created_params);
 

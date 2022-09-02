@@ -93,6 +93,7 @@ class ZoneController extends BaseController
         $cities = $this->getCityBySearch();
 
         return view('admin.zone.create', compact('page', 'services', 'main_menu', 'sub_menu','cities'));
+
     }
 
     /**
@@ -192,7 +193,7 @@ class ZoneController extends BaseController
 
         $zone = $this->zone->create($created_params);
 
-        
+
         $message = trans('succes_messages.zone_added_succesfully');
 
         return redirect('zone')->with('success', $message);
@@ -213,7 +214,7 @@ class ZoneController extends BaseController
         if($request->coordinates==null){
             throw ValidationException::withMessages(['zone_name' => __('Please Complete the shape before submit')]);
         }
-        
+
         foreach (json_decode($request->coordinates) as $key => $coordinates) {
             $points = [];
             $lineStrings = [];
@@ -408,7 +409,7 @@ class ZoneController extends BaseController
             'cancellation_fee' => $request->ride_now_cancellation_fee,
             'base_distance' => $request->ride_now_base_distance ? $request->ride_now_base_distance : 0,
             'price_per_time' => $request->ride_now_price_per_time ? $request->ride_now_price_per_time : 0.00,
-            
+
         ]);
 
         $zone_type->zoneTypePrice()->where('price_type', zoneRideType::RIDELATER)->update([
@@ -553,7 +554,7 @@ class ZoneController extends BaseController
     {
         $multi_polygons = [];
         return json_encode($multi_polygons);
-        
+
         // Prepare our stream to be read with a 1kb buffer
         $filePath = env('COORDINATES_PATH');
         $stream = new Stream\File($filePath, 1024);
@@ -599,7 +600,7 @@ class ZoneController extends BaseController
 
      public function packageIndex(ZoneType $zone_type)
     {
-       
+
         $results = $zone_type->zoneTypePackage()->paginate();
 
         $page = trans('pages_names.zone_type_package');
@@ -608,10 +609,10 @@ class ZoneController extends BaseController
         $sub_menu = 'zone';
 
         return view('admin.zone_type_package.index', compact('results', 'page', 'main_menu', 'sub_menu', 'zone_type'));
-   
+
     }
 
-    
+
      public function packageCreate(ZoneType $zone_type)
     {
         $page = trans('pages_names.zone_type_package');
@@ -637,7 +638,7 @@ class ZoneController extends BaseController
             'free_distance' => $request->free_distance,
             'free_min' => $request->free_minute,
             'cancellation_fee' => $request->cancellation_fee,
-          
+
         ]);
 
          $message = trans('succes_messages.zone_package_store_succesfully');
@@ -670,7 +671,7 @@ class ZoneController extends BaseController
             'free_distance' => $request->free_distance,
             'free_min' => $request->free_minute,
             'cancellation_fee' => $request->cancellation_fee,
-          
+
         ]);
 
          $message = trans('succes_messages.zone_package_update_succesfully');
@@ -690,14 +691,14 @@ class ZoneController extends BaseController
     public function PackagetoggleStatus(ZoneTypePackagePrice $package)
     {
         $status = $package->active == 1 ? 0 : 1;
-        
+
         $pack = ZoneTypePackagePrice::find($package->id);
         $pack->active = $status;
         $pack->save();
-        
+
 
         $message = trans('succes_messages.zone_type_package_status_changed_succesfully');
         return redirect()->back()->with('success', $message);
-        
+
     }
 }

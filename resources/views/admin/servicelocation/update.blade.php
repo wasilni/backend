@@ -49,6 +49,15 @@
         </div>
     </div>
 
+
+    <div class="col-sm-6">
+        <div class="form-group">
+        <label for="name">@lang('view_pages.name_ar') <span class="text-danger">*</span></label>
+        <input class="form-control" type="text" id="name" name="name_ar" value="{{old('name',$item->name_ar)}}" required="" placeholder="@lang('view_pages.enter_name')">
+        <span class="text-danger">{{ $errors->first('name_ar') }}</span>
+
+    </div>
+</div>
     <input type="hidden" name="currency_name" id="currency_name" value="{{ $item->currency_name }}">
     <div class="col-sm-6">
             <div class="form-group">
@@ -109,7 +118,7 @@
 </div>
 <!-- content -->
 
-<script type="text/javascript"> 
+<script type="text/javascript">
 function changeCurrencyByCountry(){
     var id = $('#country').val();
 
@@ -128,7 +137,7 @@ function changeCurrencyByCountry(){
 }
 
 $(document).on('change','#country',function(e){
-    changeCurrencyByCountry();    
+    changeCurrencyByCountry();
 });
 
 changeCurrencyByCountry();

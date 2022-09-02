@@ -80,6 +80,34 @@
                                 </div>
 
 
+
+
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="question">@lang('view_pages.question_ar') <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text" id="question" name="question_ar"
+                                                value="{{ old('question',$item->question) }}" required
+                                                placeholder="@lang('view_pages.enter') @lang('view_pages.question_ar')">
+                                            <span class="text-danger">{{ $errors->first('question_ar') }}</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="answer">@lang('view_pages.answer_ar') <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text" id="answer" name="answer_ar"
+                                                value="{{ old('answer_ar',$item->answer_ar) }}" required=""
+                                                placeholder="@lang('view_pages.enter') @lang('view_pages.answer_ar')">
+                                            <span class="text-danger">{{ $errors->first('answer_ar') }}</span>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+
+
                                 <div class="form-group">
                                     <div class="col-12">
                                         <button class="btn btn-primary btn-sm pull-right m-5" type="submit">

@@ -55,7 +55,7 @@ class FaqController extends BaseController
 
     public function store(CreateFaqRequest $request)
     {
-        $created_params = $request->only(['service_location_id', 'question','answer','user_type']);
+        $created_params = $request->only(['service_location_id', 'question','answer','question_ar','answer_ar','user_type']);
         $created_params['active'] = 1;
 
         $created_params['company_key'] = auth()->user()->company_key;

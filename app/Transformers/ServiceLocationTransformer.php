@@ -15,6 +15,7 @@ class ServiceLocationTransformer extends Transformer {
 		return [
 			'id' => $serviceLocation->id,
 			'name' => $serviceLocation->name,
+            'name_ar' => $serviceLocation->name_ar,
 			'currency_name' => $serviceLocation->currency_name,
 			'currency_symbol' => $serviceLocation->currency_symbol,
 			'timezone' => $serviceLocation->timezone,

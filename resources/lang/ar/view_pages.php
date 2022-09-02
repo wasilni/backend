@@ -467,7 +467,8 @@ return array (
 'Approval_Status'=>'حالات الاعتماد ',
 'Online_Status'=>'حالات الاتصال  ',
 'all' => 'كل',
-
+'answer_ar' => 'الاجابة باللغة العربية',
+'question_ar' => '  السؤال باللغة العربية',
 
 
 

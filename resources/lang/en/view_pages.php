@@ -563,7 +563,8 @@ return array (
 'Approval_Status'=>'Approval Status',
 'Online_Status'=>'Online Status ',
 
-
+'answer_ar' => ' answer arabic lang ',
+'question_ar' => 'question arabic lang  ',
 
 
 

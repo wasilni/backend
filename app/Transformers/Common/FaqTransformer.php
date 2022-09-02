@@ -25,6 +25,8 @@ class FaqTransformer extends Transformer
             'service_location_id' => $faq->service_location_id,
             'question' => $faq->question,
             'answer' => $faq->answer,
+            'question_ar' => $faq->question,
+            'answer_ar' => $faq->answer,
             'user_type' => $faq->user_type,
             'active' => (bool) $faq->active,
         ];

@@ -15,7 +15,7 @@ class Faq extends Model
     // ,SoftDeletes;
 
     protected $fillable = [
-        'service_location_id','question','answer','user_type','active','company_key'
+        'service_location_id','question','answer','question_ar','answer_ar','user_type','active','company_key'
     ];
 
     /**

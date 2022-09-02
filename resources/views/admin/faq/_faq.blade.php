@@ -16,8 +16,25 @@
     @forelse($results as $key => $result)
         <tr>
             <td>{{ $i++ }} </td>
-            <td>{{$result->question}}</td>
-            <td>{{$result->answer}}</td>
+            <td>
+                   @if(App::getLocale() == 'en')
+
+                {{$result->question}}
+
+            @else
+            {{$result->question_ar}}
+        </td>
+            <td>
+
+                @if(App::getLocale() == 'en')
+
+                {{$result->answer}}
+
+            @else
+            {{$result->answer_ar}}
+
+
+          </td>
             <td>
                 <span class="label label-warning">{{ ucfirst($result->user_type) }}</span>
             </td>

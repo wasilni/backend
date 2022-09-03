@@ -19,13 +19,13 @@ class UserTransformer extends Transformer
      *
      * @var array
      */
-     
-     
+
+
       public function __construct()
     {
     	$this->availableIncludes = [
         'roles','onTripRequest','metaRequest','favouriteLocations'        ];
-        
+
         	$this->defaultIncludes = [
         'sos'
         ];
@@ -33,13 +33,13 @@ class UserTransformer extends Transformer
 
 
 
-  
+
     /**
      * Resources that can be included default.
      *
      * @var array
      */
-  
+
 
     /**
      * A Fractal transformer.
@@ -72,8 +72,8 @@ class UserTransformer extends Transformer
             'gender' =>$user->gender,
              'points_balance' =>$user->points_balance,
              'referred_by'=>$user->referred_by,
-                          'level_ar'=>$user->level_ar,
-                                                    'level_en'=>$user->level_en,
+             'level_ar'=>$user->level_ar,
+              'level_en'=>$user->level_en,
 
 
 
@@ -84,14 +84,14 @@ class UserTransformer extends Transformer
         $referral_comission = get_settings('referral_commision_for_user');
           if($user->lang=='en'){
        $referral_comission_string = 'Refer a friend and earn'.$user->countryDetail->currency_symbol.''.$referral_comission;
-    
+
        }
     else{
         $referral_comission_string = 'ادع صديق واكسب'.$user->countryDetail->currency_symbol.''.$referral_comission;
        }
-       
 
-     
+
+
         $params['referral_comission_string'] = $referral_comission_string;
         return $params;
     }

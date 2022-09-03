@@ -175,12 +175,14 @@ class DriverEndRequestController extends BaseController
 
 
               $totalTrips = Request::where('driver_id',\Auth::User()->id)->companyKey()->whereIsCompleted(true)->count();
+              return  $totalTrips ;
 
-        $level= Level::all();
+
+        $levels= Level::all();
        $driver= User::find(\Auth::User()->id);
-        foreach($level as $level){
+        foreach($levels as $level){
 
-                if($totalTrips==$level->no_trip)
+                if($totalTrips<=$level->no_trip)
                 $driver->level_ar==$level->name_ar;
                  $driver->level_en==$level->name_en;
                  $driver->update();

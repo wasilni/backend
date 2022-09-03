@@ -146,9 +146,9 @@ class DriverEndRequestController extends BaseController
 
             foreach($levels as $level){
 
-                    if($totalTrips<=$level->no_trip)
-                    $driver->level_ar=$level->name_ar;
-                     $driver->level_en=$level->name_en;
+                    if($totalTrips <= $level->no_trip)
+                    $driver->level_ar =$level->name_ar;
+                     $driver->level_en =$level->name_en;
                      $driver->update();
             }
 

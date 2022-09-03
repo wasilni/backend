@@ -31,6 +31,7 @@ class Settings
     const BRAINTREE_MASTER_MERCHANT ='braintree_master_merchant';
     const BRAINTREE_DEFAULT_MERCHANT ='braintree_default_merchant';
     const DRIVER_SEARCH_RADIUS='driver_search_radius';
+    const ENABLE_TELR='enable_telr';
     const MINIMUM_TIME_FOR_SEARCH_DRIVERS_FOR_SCHEDULE_RIDE='minimum_time_for_search_drivers_for_schedule_ride';
     const REFERRAL_COMMISION_FOR_USER='referral_commision_for_user';
     const REFERRAL_COMMISION_FOR_DRIVER='referral_commision_for_driver';

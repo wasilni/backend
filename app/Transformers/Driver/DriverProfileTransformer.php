@@ -24,13 +24,13 @@ class DriverProfileTransformer extends Transformer
      *
      * @var array
      */
-     
-     
+
+
          public function __construct()
     {
     	$this->availableIncludes = [
          'onTripRequest','metaRequest'      ];
-        
+
         	$this->defaultIncludes = [
         'sos'
         ];
@@ -80,10 +80,10 @@ class DriverProfileTransformer extends Transformer
             'company_key'=>$user->user->company_key,
               'gender' =>$user->user->gender,
             'level_ar'=>$user->user->level_ar,
-                'level_en'=>$user->user->level_en,
- 'points_balance' =>$user->user->points_balance,
+            'level_en'=>$user->user->level_en,
+             'points_balance' =>$user->user->points_balance,
             'show_instant_ride'=>false,
-            
+
             'country_id'=>$user->user->countryDetail->id,
             'currency_symbol' => $user->user->countryDetail->currency_symbol,
             'mqtt_ip'=>'54.172.163.200'
@@ -124,9 +124,9 @@ class DriverProfileTransformer extends Transformer
                 if ($minimum_balance > $wallet_balance) {
                 $low_balance = true;
             }
-                
+
             }
-            
+
 
             $params['low_balance'] = $low_balance;
 

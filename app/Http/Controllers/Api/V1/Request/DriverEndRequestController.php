@@ -135,37 +135,47 @@ class DriverEndRequestController extends BaseController
             'total_time'=>$duration,
             ]);
 
-
             $totalTrips = Request::where('driver_id',\Auth::User()->id)->companyKey()->whereIsCompleted(true)->count();
 
+            $levfiesrt=Level::where('id','1')->first();
+            $levsecond=Level::where('id','2')->first();
+            $levthird=Level::where('id','3')->first();
+            $levsefourth=Level::where('id','4')->first();
+            $driver= User::where('id',auth()->user()->id)->first();
 
-
-           $levels= Level::all();
-           $driver= User::find(\Auth::User()->id);
-
-           $levfiesrt= Level::find(1);
-           $levsecond= Level::find(2);
-           $levthird= Level::find(3);
-           $levsefourth= Level::find(4);
-
-           $driver->level_ar ='hjhgjhg';
-           $driver->level_en ='hjhjg';
-           $driver->update();
-           if($levfiesrt->no_trip >= $totalTrips){
+  if($levfiesrt->no_trip >= $totalTrips){
             $driver->level_ar =$levfiesrt->name_ar;
             $driver->level_en =$levfiesrt->name_en;
             $driver->update();
 
             }
-            else{
-                $driver->level_ar ='hjhgjhg';
-                $driver->level_en ='hjhjg';
+elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip){
+
+
+
+                $driver->level_ar =$levsecond->name_ar;
+                $driver->level_en =$levsecond->name_en;
                 $driver->update();
-            }
+
+        }
+
+
+        elseif($levthird->no_trip >= $totalTrips && $totalTrips < $levsefourth->no_trip ){
 
 
 
+            $driver->level_ar =$levthird->name_ar;
+            $driver->level_en =$levthird->name_en;
+            $driver->update();
 
+    }
+
+    else{
+
+        $driver->level_ar =$levsefourth->name_ar;
+        $driver->level_en =$levsefourth->name_en;
+        $driver->update();
+    }
 
 
             //here al--------------------------------------------------------

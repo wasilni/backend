@@ -34,7 +34,7 @@ class Driver extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id','owner_id','service_location_id', 'name','mobile','email','address','state','city','country','postal_code','gender','vehicle_type','car_make','car_model','car_color','car_number','today_trip_count','total_accept','total_reject','acceptance_ratio','last_trip_date','active','approve','available','reason','uuid','fleet_id','vehicle_year','level_en','level_ar'
+        'user_id','owner_id','service_location_id', 'name','mobile','email','address','state','city','country','postal_code','gender','vehicle_type','car_make','car_model','car_color','car_number','today_trip_count','total_accept','total_reject','acceptance_ratio','last_trip_date','active','approve','available','reason','uuid','fleet_id','vehicle_year','level_en','level_ar',
     ];
     /**
     * The accessors to append to the model's array form.

@@ -140,13 +140,13 @@ class DriverEndRequestController extends BaseController
 
 
 
-
            $levels= Level::all();
            $driver= User::find(\Auth::User()->id);
 
             foreach($levels as $level){
 
-                    if($totalTrips <= $level->no_trip)
+                if($level->no_trip <= $totalTrips)
+
                     $driver->level_ar =$level->name_ar;
                      $driver->level_en =$level->name_en;
                      $driver->update();

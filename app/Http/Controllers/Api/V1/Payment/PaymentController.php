@@ -298,8 +298,8 @@ class PaymentController extends BaseController
 
 
         if(get_settings(Settings::ENABLE_TELR)==1){
+            $enable_telr = true;
 
-            $ENABLE_TELR = true;
         }
 
 
@@ -327,7 +327,7 @@ class PaymentController extends BaseController
             'cash_free'=>$enable_cashfree,
             'flutter_wave'=>$enable_flutter_wave,
             'paymob'=>$enable_paymob,
-            'teler'=>$ENABLE_TELR,
+            'teler'=>$enable_telr,
             'bank_info_exists'=>$bank_info_exists,
             'stripe_environment'=>$stripe_environment,
             'stripe_test_publishable_key'=>$stripe_test_publishable_key,

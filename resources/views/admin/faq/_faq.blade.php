@@ -38,7 +38,9 @@
 
           </td>
             <td>
-                <span class="label label-warning">{{ ucfirst($result->user_type) }}</span>
+                <span class="label label-warning">{{ ucfirst($result->user_type) }}
+
+                </span>
             </td>
             @if($result->active)
             <td><span class="label label-success">@lang('view_pages.active')</span></td>

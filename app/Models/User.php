@@ -59,7 +59,7 @@ class User extends Authenticatable implements CanSendOTPContract
      */
     protected $fillable = [
         'name', 'username', 'email', 'password', 'mobile', 'country', 'profile_picture', 'email_confirmed', 'mobile_confirmed', 'email_confirmation_token', 'active','fcm_token','login_by','apn_token','timezone','rating','rating_total','no_of_ratings','refferal_code','referred_by','social_nickname','social_id','social_token','social_token_secret',
-        'social_refresh_token','social_expires_in','social_avatar','social_avatar_original','social_provider','company_key','lang','gender','points_balance','level_en','level_ar'
+        'social_refresh_token','social_expires_in','social_avatar','social_avatar_original','social_provider','company_key','lang','gender','level_en','level_ar','points_balance','level_en','level_ar'
     ];
 
     /**
@@ -341,7 +341,7 @@ class User extends Authenticatable implements CanSendOTPContract
         return $this->apn_token;
     }
 
-    
+
 
     protected $searchable = [
         'columns' => [

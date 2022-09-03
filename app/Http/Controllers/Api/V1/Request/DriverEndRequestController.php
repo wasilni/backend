@@ -134,63 +134,63 @@ class DriverEndRequestController extends BaseController
             'total_distance'=>$distance,
             'total_time'=>$duration,
             ]);
-        
-
-            //here al--------------------------------------------------------                                       
-            $Setting= Setting::where('name','trip_point')->first();      
-            
-            $requestcompleted=Request::find($request->request_id);     
-            $client= User::find($requestcompleted->user_id);         
-            $client->points_balance=$client->points_balance+$Setting->value;     
-            $client->update(); 
-            
-             $Setting_Bronze_level_points= Level::where('name_en','pronze')->first(); 
-             $Setting_silver_Points= Level::where('name_en','silver')->first(); 
-                 
-            $Setting_golden_points= Level::where('name_en','golden')->first(); 
-
-            $Setting_diamonds_points= Level::where('name_en','diamonds')->first(); 
 
 
-            $driverpoint=auth()->user();  
+            //here al--------------------------------------------------------
+            $Setting= Setting::where('name','trip_point')->first();
+
+            $requestcompleted=Request::find($request->request_id);
+            $client= User::find($requestcompleted->user_id);
+            $client->points_balance=$client->points_balance+$Setting->value;
+            $client->update();
+
+             $Setting_Bronze_level_points= Level::where('name_en','pronze')->first();
+             $Setting_silver_Points= Level::where('name_en','silver')->first();
+
+            $Setting_golden_points= Level::where('name_en','golden')->first();
+
+            $Setting_diamonds_points= Level::where('name_en','diamonds')->first();
+
+
+            $driverpoint=auth()->user();
             if($driverpoint->level_en=='pronze'){
-                
-                
-                $driverpoint->points_balance=$driverpoint->points_balance+$Setting_Bronze_level_points->no_point;    
+
+
+                $driverpoint->points_balance=$driverpoint->points_balance+$Setting_Bronze_level_points->no_point;
             }
             if($driverpoint->level_en=='silver'){
-                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_silver_Points->no_point;    
-                
+                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_silver_Points->no_point;
+
             }
              if($driverpoint->level_en=='golden'){
-                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_golden_points->no_point;    
-                
+                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_golden_points->no_point;
+
             }
                 if($driverpoint->level_en=='diamonds'){
-                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_diamonds_points->no_point;    
-                
+                   $driverpoint->points_balance=$driverpoint->points_balance+$Setting_diamonds_points->no_point;
+
             }
-                  
-            $driverpoint->update();      
-            
-            
+
+            $driverpoint->update();
+
+
               $totalTrips = Request::where('driver_id',\Auth::User()->id)->companyKey()->whereIsCompleted(true)->count();
-         
+
         $level= Level::all();
        $driver= User::find(\Auth::User()->id);
         foreach($level as $level){
-        
+
                 if($totalTrips==$level->no_trip)
                 $driver->level_ar==$level->name_ar;
                  $driver->level_en==$level->name_en;
                  $driver->update();
         }
-                
-                
-                
-                
+
+
+
+
             //here al--------------------------------------------------------
- 
+
         $before_trip_start_waiting_time = $request->input('before_trip_start_waiting_time');
         $after_trip_start_waiting_time = $request->input('after_trip_start_waiting_time');
 
@@ -224,16 +224,16 @@ class DriverEndRequestController extends BaseController
 
             $previous_range = 0;
             $exceeding_range = 0;
-            $package= null;            
+            $package= null;
 
         $zone_type_package_prices = $zone_type->zoneTypePackage()->orderBy('free_min','asc')->get();
 
 
-        foreach ($zone_type_package_prices as $key => $zone_type_package_price) {            
-            
+        foreach ($zone_type_package_prices as $key => $zone_type_package_price) {
+
             if($zone_type_package_price->free_min == $duration){
                 $package = $zone_type_package_price;
-                
+
                 break;
             }
             elseif($zone_type_package_price->free_min < $duration){
@@ -247,14 +247,14 @@ class DriverEndRequestController extends BaseController
 
             if($exceeding_range != 0 && $package == null){
                 $package = ($previous_range == 0) ? $exceeding_zone_type : $previous_zone_type;
-               
+
 
                 break;
 
             } else {
                 $package = $previous_zone_type;
 
-               
+
             }
         }
 
@@ -272,7 +272,7 @@ class DriverEndRequestController extends BaseController
           $calculated_bill =  $this->calculateRentalRideFares($zone_type_price, $distance, $duration, $waiting_time, $promo_detail,$request_detail);
 
           // Log::info($calculated_bill);
-            
+
         }
 
 
@@ -347,7 +347,7 @@ class DriverEndRequestController extends BaseController
         // Store Request bill
 
         $bill = $request_detail->requestBill()->create($calculated_bill);
-    
+
         // Log::info($bill);
 
         $request_result = fractal($request_detail, new TripRequestTransformer)->parseIncludes(['requestBill','userDetail','driverDetail']);
@@ -379,10 +379,10 @@ class DriverEndRequestController extends BaseController
 
         $title = trans('push_notifications.trip_completed_title');
         $body = trans('push_notifications.trip_completed_body');
-        
-          
+
+
               if($user->lang=='en'){
-        
+
               $title ='Driver Ended the trip 😊';
               $body =  'Driver finished the ride, Please help us by rate the driver';
 
@@ -391,29 +391,29 @@ class DriverEndRequestController extends BaseController
                 $title =  'السائق أنهى الرحلة 😊️';
                   $body ='السائق أنهى الرحلة ساعدنا للتقييم';
                 }
-    
+
 
         $user->notify(new AndroidPushNotification($title, $body));
-        
-        
+
+
            $title_en ='Driver Ended the trip 😊';
            $body_en =  'Driver finished the ride, Please help us by rate the driver';
-        
+
                 $title_ar =  'السائق أنهى الرحلة 😊️';
                   $body_ar ='السائق أنهى الرحلة ساعدنا للتقييم';
-        
+
        $user->notify(new DriverfinishedtripNotification($title_ar,$title_en, $body_ar,$body_en));
-        
-        
-        
+
+
+
         dispatch_notify:
         // @TODO Send email & sms
-        
-        
-       
-         
 
-             
+
+
+
+
+
 
 
 
@@ -435,7 +435,7 @@ class DriverEndRequestController extends BaseController
     *
     */
     public function calculateRideFares($zone_type_price, $distance, $duration, $waiting_time, $coupon_detail,$request_detail)
-    {   
+    {
         $request_place = $request_detail->requestPlace;
 
         $airport_surge = find_airport($request_place->pick_lat,$request_place->pick_lng);
@@ -483,7 +483,7 @@ class DriverEndRequestController extends BaseController
             // $price_discount = ($sub_total * ($seat_discount / 100));
 
 
-            // $sub_total -= $price_discount; 
+            // $sub_total -= $price_discount;
 
             $base_price -= ($base_price * ($seat_discount / 100));
 
@@ -530,22 +530,22 @@ class DriverEndRequestController extends BaseController
         $service_fee = get_settings('admin_commission');
         // Admin commision
         $admin_commision = ($sub_total * ($service_fee / 100));
-        
+
         //technical commission
          $technical_fee = get_settings('technical_commisssion');
         $technical_commisssion = ($sub_total * ($technical_fee / 100));
-        
-        
-        
+
+
+
         // Admin commision with tax amount
         $admin_commision_with_tax = $tax_amount + $admin_commision;
-        $driver_commision = $sub_total+$discount_amount;  
+        $driver_commision = $sub_total+$discount_amount;
         // Driver Commission
         if($coupon_detail && $coupon_detail->deduct_from==2){
-            $driver_commision = $sub_total;  
+            $driver_commision = $sub_total;
         }
         // Total Amount
-        $total_amount = $sub_total + $admin_commision_with_tax;
+        $total_amount = $sub_total + $admin_commision_with_tax+$technical_commisssion;
 
         return $result = [
         'base_price'=>$base_price,
@@ -575,7 +575,7 @@ class DriverEndRequestController extends BaseController
     *
     */
     public function calculateRentalRideFares($zone_type_price, $distance, $duration, $waiting_time, $coupon_detail,$request_detail)
-    {   
+    {
         $request_place = $request_detail->requestPlace;
 
         $airport_surge = find_airport($request_place->pick_lat,$request_place->pick_lng);
@@ -623,7 +623,7 @@ class DriverEndRequestController extends BaseController
             // $price_discount = ($sub_total * ($seat_discount / 100));
 
 
-            // $sub_total -= $price_discount; 
+            // $sub_total -= $price_discount;
 
             $base_price -= ($base_price * ($seat_discount / 100));
 
@@ -661,10 +661,10 @@ class DriverEndRequestController extends BaseController
         $admin_commision = ($sub_total * ($service_fee / 100));
         // Admin commision with tax amount
         $admin_commision_with_tax = $tax_amount + $admin_commision;
-        $driver_commision = $sub_total+$discount_amount;  
+        $driver_commision = $sub_total+$discount_amount;
         // Driver Commission
         if($coupon_detail && $coupon_detail->deduct_from==2){
-            $driver_commision = $sub_total;  
+            $driver_commision = $sub_total;
         }
         // Total Amount
         $total_amount = $sub_total + $admin_commision_with_tax;
@@ -703,9 +703,9 @@ class DriverEndRequestController extends BaseController
 
         $expired = Promo::where('id', $promo_code_id)->where('from', '<=', $current_date)->orWhere('to', '>=', $current_date)->first();
 
-        
+
         return $expired;
-        
+
         // $exceed_usage = PromoUser::where('promo_code_id', $expired->id)->where('user_id', $user_id)->get()->count();
 
         // if ($exceed_usage >= $expired->uses_per_user) {
@@ -715,6 +715,6 @@ class DriverEndRequestController extends BaseController
         // if ($expired->total_uses > $expired->total_uses+1) {
         //     return null;
         // }
-        
+
     }
 }

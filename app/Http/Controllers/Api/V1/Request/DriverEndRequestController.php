@@ -147,39 +147,17 @@ class DriverEndRequestController extends BaseController
            $levthird= Level::find(3);
            $levsefourth= Level::find(4);
 
-           if($levfiesrt->no_trip >= $totalTrips ){
+           if($levfiesrt->no_trip >= $totalTrips){
             $driver->level_ar =$levfiesrt->name_ar;
             $driver->level_en =$levfiesrt->name_en;
             $driver->update();
 
-        }elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip ){
-
-
-
-                $driver->level_ar =$levsecond->name_ar;
-                $driver->level_en =$levsecond->name_en;
+            }
+            else{
+                $driver->level_ar ='hjhgjhg';
+                $driver->level_en ='hjhjg';
                 $driver->update();
-
-        }
-
-
-        elseif($levthird->no_trip >= $totalTrips && $totalTrips < $levsefourth->no_trip ){
-
-
-
-            $driver->level_ar =$levthird->name_ar;
-            $driver->level_en =$levthird->name_en;
-            $driver->update();
-
-    }
-
-    else{
-
-        $driver->level_ar =$levsefourth->name_ar;
-        $driver->level_en =$levsefourth->name_en;
-        $driver->update();
-    }
-
+            }
 
 
 

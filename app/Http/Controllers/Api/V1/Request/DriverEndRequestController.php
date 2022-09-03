@@ -135,7 +135,7 @@ class DriverEndRequestController extends BaseController
             'total_time'=>$duration,
             ]);
 
-            $totalTrips = Request::where('driver_id',\Auth::User()->id)->companyKey()->whereIsCompleted(true)->count();
+            $totalTrips = Request::where('driver_id',$driver->id)->companyKey()->whereIsCompleted(true)->count();
 
             $levfiesrt=Level::where('id','1')->first();
             $levsecond=Level::where('id','2')->first();

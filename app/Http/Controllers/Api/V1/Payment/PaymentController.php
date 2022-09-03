@@ -295,6 +295,7 @@ class PaymentController extends BaseController
             $enable_paymob = true;
         }
 
+        $enable_telr = false;
 
 
         if(get_settings(Settings::ENABLE_TELR)==1){

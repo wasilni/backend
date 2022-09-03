@@ -142,11 +142,15 @@ class DriverEndRequestController extends BaseController
 
            $levels= Level::all();
            $driver= User::find(\Auth::User()->id);
+
            $levfiesrt= Level::find(1);
            $levsecond= Level::find(2);
            $levthird= Level::find(3);
            $levsefourth= Level::find(4);
 
+           $driver->level_ar ='hjhgjhg';
+           $driver->level_en ='hjhjg';
+           $driver->update();
            if($levfiesrt->no_trip >= $totalTrips){
             $driver->level_ar =$levfiesrt->name_ar;
             $driver->level_en =$levfiesrt->name_en;

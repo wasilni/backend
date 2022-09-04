@@ -115,7 +115,7 @@
 <div class="col-12">
     <div class="box box-solid box-info">
         <div class="box-header with-border">
-        <h4 class="box-title">Ride Now</h4>
+        <h4 class="box-title">@lang('view_pages.Ride_Now')</h4>
         </div>
 
         <div class="box-body">
@@ -167,7 +167,7 @@
                 </div>
                 </div>
 
-<!-- 
+<!--
                 <div class="col-sm-6">
                 <div class="form-group">
                 <label for="waiting_charge">@lang('view_pages.waiting_charge')<span class="text-danger">*</span></label>
@@ -186,7 +186,7 @@
     <div class="col-12">
         <div class="box box-solid box-info">
         <div class="box-header with-border">
-        <h4 class="box-title">Ride Later</h4>
+        <h4 class="box-title">@lang('view_pages.Ride_Later')</h4>
         </div>
 
         <div class="box-body">

@@ -567,7 +567,9 @@ return array (
 'question_ar' => 'question arabic lang  ',
 'reason_ar' => 'reason arabic language',
 
+'Ride_Now' => 'Ride Now  ',
 
+'Ride_Later' => 'Ride Later ',
 
 
 

@@ -462,7 +462,7 @@ elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip){
     * Calculate Ride fares
     *
     */
-    public function calculateRideFares($zone_type_price, $distance, $duration, $waiting_time, $coupon_detail,$request_detail)
+    public function calculateRideFares($zone_type_price, $distance, $duration, $waiting_time, $promo_detail,$request_detail)
     {
         $request_place = $request_detail->requestPlace;
 
@@ -541,15 +541,15 @@ elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip){
         }
 
         $discount_amount = 0;
-
-            if ($coupon_detail->minimum_trip_amount < $sub_total) {
-                $discount_amount = $sub_total * ($coupon_detail->discount_percent/100);
-                if ($discount_amount > $coupon_detail->maximum_discount_amount) {
-                    $discount_amount = $coupon_detail->maximum_discount_amount;
+        if ($promo_detail) {
+            if ($promo_detail->minimum_trip_amount < $sub_total) {
+                $discount_amount = $sub_total * ($promo_detail->discount_percent/100);
+                if ($discount_amount > $promo_detail->maximum_discount_amount) {
+                    $discount_amount = $promo_detail->maximum_discount_amount;
                 }
                 $sub_total = $sub_total - $discount_amount;
             }
-
+        }
 
         // Get service tax percentage from settings
         $tax_percent = get_settings('service_tax');

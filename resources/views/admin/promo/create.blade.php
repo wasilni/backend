@@ -119,7 +119,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="from">@lang('view_pages.from') <span class="text-danger">*</span></label>
-                                            <input class="form-control datepicker" type="text" id="from" name="from"
+                                            <input class="form-control " type="date" id="from" name="from"
                                                 value="{{ old('from') }}" required
                                                 placeholder="@lang('view_pages.enter') @lang('view_pages.from')"  autocomplete="off">
                                             <span class="text-danger">{{ $errors->first('from') }}</span>
@@ -128,7 +128,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label for="to">@lang('view_pages.to') <span class="text-danger">*</span></label>
-                                            <input class="form-control datepicker" type="text" id="to" name="to"
+                                            <input class="form-control " type="date" id="to" name="to"
                                                 value="{{ old('to') }}" required=""
                                                 placeholder="@lang('view_pages.enter') @lang('view_pages.to')"  autocomplete="off">
                                             <span class="text-danger">{{ $errors->first('to') }}</span>

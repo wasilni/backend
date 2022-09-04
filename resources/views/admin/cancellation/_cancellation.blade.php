@@ -18,7 +18,17 @@
     @forelse($results as $key => $result)
         <tr>
             <td>{{ $i++ }} </td>
-            <td>{{$result->reason}}</td>
+            <td>
+                @if(App::getLocale() == 'en')
+
+
+
+                {{$result->reason}}
+            @else
+            {{$result->reason_ar}}
+            @endif
+
+        </td>
             <td>
                 <span class="label label-warning">{{ ucfirst($result->user_type) }}</span>
             </td>

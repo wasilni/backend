@@ -541,7 +541,7 @@ elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip){
         }
 
         $discount_amount = 0;
-        if ($coupon_detail) {
+
             if ($coupon_detail->minimum_trip_amount < $sub_total) {
                 $discount_amount = $sub_total * ($coupon_detail->discount_percent/100);
                 if ($discount_amount > $coupon_detail->maximum_discount_amount) {
@@ -549,7 +549,7 @@ elseif($levsecond->no_trip >= $totalTrips && $totalTrips < $levthird->no_trip){
                 }
                 $sub_total = $sub_total - $discount_amount;
             }
-        }
+
 
         // Get service tax percentage from settings
         $tax_percent = get_settings('service_tax');

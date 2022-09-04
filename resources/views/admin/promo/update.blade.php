@@ -4,7 +4,7 @@
 @section('content')
 {{-- {{session()->get('errors')}} --}}
 
-<!-- bootstrap datepicker -->	
+<!-- bootstrap datepicker -->
 <link rel="stylesheet" href="{!! asset('assets/vendor_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css') !!}">
 
     <!-- Start Page content -->
@@ -39,7 +39,13 @@
                                                 required>
                                                 <option value="">@lang('view_pages.select_area')</option>
                                                 @foreach ($cities as $key => $city)
-                                                    <option value="{{ $city->id }}" {{ old('service_location_id',$item->service_location_id) == $city->id ? 'selected' : '' }} >{{ $city->name }}</option>
+                                                    <option value="{{ $city->id }}" {{ old('service_location_id',$item->service_location_id) == $city->id ? 'selected' : '' }} >
+                                                        @if(App::getLocale() == 'en')
+                                                        {{ $city->name }}
+                                                    @else
+                                                    {{ $city->name_ar }}
+
+                                                    @endif</option>
                                                 @endforeach
                                             </select>
                                             <span class="text-danger">{{ $errors->first('service_location_id') }}</span>

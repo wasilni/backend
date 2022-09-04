@@ -565,6 +565,7 @@ return array (
 
 'answer_ar' => ' answer arabic lang ',
 'question_ar' => 'question arabic lang  ',
+'reason_ar' => 'reason arabic language',
 
 
 

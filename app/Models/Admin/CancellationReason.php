@@ -12,6 +12,6 @@ class CancellationReason extends Model
     use UuidModel,HasActive,HasActiveCompanyKey;
 
     protected $fillable = [
-        'user_type','payment_type','arrival_status','reason','active','company_key'
+        'user_type','payment_type','arrival_status','reason','active','company_key','reason_ar'
     ];
 }

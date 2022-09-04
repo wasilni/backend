@@ -73,6 +73,21 @@
                                             <span class="text-danger">{{ $errors->first('reason') }}</span>
                                         </div>
                                     </div>
+
+
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label for="reason">@lang('view_pages.reason_ar') <span class="text-danger">*</span></label>
+                                            <input class="form-control" type="text" id="reason" name="reason_ar"
+                                                value="{{ old('reason_ar') }}" required
+                                                placeholder="@lang('view_pages.enter') @lang('view_pages.reason_ar')">
+                                            <span class="text-danger">{{ $errors->first('reason_ar') }}</span>
+                                        </div>
+                                    </div>
+
+
+
+
                                 </div>
 
 

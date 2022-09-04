@@ -52,7 +52,7 @@ class CancellationReasonController extends Controller
 
     public function store(CreateCancellationReasonRequest $request)
     {
-        $created_params = $request->only(['payment_type', 'arrival_status','reason','user_type']);
+        $created_params = $request->only(['payment_type', 'arrival_status','reason','user_type','reason_ar']);
 
         // $created_params['company_key'] = auth()->user()->company_key;
 

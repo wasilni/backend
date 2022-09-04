@@ -19,6 +19,8 @@ class CreateCancellationReasonsTable extends Migration
             $table->enum('payment_type',['free','compensate']);
             $table->enum('arrival_status',['before','after']);
             $table->text('reason');
+            $table->text('reason_ar');
+
             $table->boolean('active')->default(true);
 
             $table->timestamps();

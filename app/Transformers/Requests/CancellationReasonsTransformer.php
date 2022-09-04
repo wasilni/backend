@@ -12,7 +12,7 @@ class CancellationReasonsTransformer extends Transformer
      *
      * @var array
      */
-  
+
 
     /**
      * A Fractal transformer.
@@ -26,7 +26,9 @@ class CancellationReasonsTransformer extends Transformer
             'id' => $reason->id,
             'user_type' => $reason->user_type,
             'arrival_status' => $reason->arrival_status,
-            'reason' => $reason->reason
+            'reason' => $reason->reason,
+            'reason_ar' => $reason->reason_ar,
+
         ];
     }
 }

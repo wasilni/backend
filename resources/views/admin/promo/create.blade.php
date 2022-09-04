@@ -40,7 +40,13 @@
                                                 required>
                                                 <option value="">@lang('view_pages.select_area')</option>
                                                 @foreach ($cities as $key => $city)
-                                                    <option value="{{ $city->id }}" {{ old('service_location_id') == $city->id ? 'selected' : '' }} >{{ $city->name }}</option>
+                                                    <option value="{{ $city->id }}" {{ old('service_location_id') == $city->id ? 'selected' : '' }} >
+                                                        @if(App::getLocale() == 'en')
+                                                        {{ $city->name }}
+                                                    @else
+                                                    {{ $city->name_ar }}
+                                                    @endif
+                                                </option>
                                                 @endforeach
                                             </select>
                                             <span class="text-danger">{{ $errors->first('service_location_id') }}</span>
@@ -114,7 +120,7 @@
                                         <div class="form-group">
                                             <label for="from">@lang('view_pages.from') <span class="text-danger">*</span></label>
                                             <input class="form-control datepicker" type="text" id="from" name="from"
-                                                value="{{ old('from') }}" required 
+                                                value="{{ old('from') }}" required
                                                 placeholder="@lang('view_pages.enter') @lang('view_pages.from')"  autocomplete="off">
                                             <span class="text-danger">{{ $errors->first('from') }}</span>
                                         </div>

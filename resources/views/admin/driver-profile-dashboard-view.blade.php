@@ -170,7 +170,7 @@
                                         @endforeach
                                     </p>
 
-                                  
+
                                        {{--  <span>
                                             <i class="fa fa-star" style="color: yellow"></i>
                                             <i class="fa fa-star" style="color: yellow"></i>
@@ -179,7 +179,7 @@
                                             <i class="fa fa-star" style="color: yellow"></i>
                                         </span> --}}
                                        <p>
-                                    
+
                                         <span class="text-gray">
                                            {{$item->user->email}} <br>
                                             {{$item->user->mobile}}
@@ -188,12 +188,12 @@
                                         @if ($item->available == 0)
                                         <p>
                                          <span class="text-gray">
-                                           
+
                                             Last Logout : {{$item->getConvertedUpdatedAtAttribute()}} <br>
                                         </span>
                                     </p>
                                     @endif
-                                    
+
                                 </div>
                             </div>
                            <div class="col-md-2 m-auto">
@@ -224,7 +224,7 @@
             </div>
         </div>
 
-       
+
             {{-- card --}}
              <div class="row g-3">
             <div class="col-sm-6 col-md-3">
@@ -235,7 +235,7 @@
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
                         <h6> @lang('view_pages.Today_Trip')
-                            
+
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -251,7 +251,7 @@
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
                         <h6> @lang('view_pages.Today_Earning')
-                            
+
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-success"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -268,7 +268,7 @@
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
                         <h6>@lang('view_pages.Total_Trips')
-                            
+
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-warning"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -299,7 +299,7 @@
                     <!--/.bg-holder-->
                     <div class="card-body position-relative">
                         <h6>@lang('view_pages.Wallet_Amount')
-                            
+
                         </h6>
                         <div class="display-4 fs-4 mb-2 font-weight-normal font-sans-serif text-danger"
                             data-countup="{&quot;endValue&quot;:58.386,&quot;decimalPlaces&quot;:2,&quot;suffix&quot;:&quot;k&quot;}">
@@ -311,7 +311,7 @@
 
 
 
-         <div class="row">
+         {{-- <div class="row">
             <div class="col-12">
 
                 <div class="box">
@@ -324,16 +324,16 @@
                                     <li><a class="box-btn-fullscreen" href="#"></a></li>
                                 </ul>
                             </div>
-                   
+
                          <div class="box-body">
-                           
+
                          <div id="map"></div>
-                       
+
                     </div>
                 </div>
 
             </div>
-        </div>
+        </div> --}}
 
 
             <div class="row">
@@ -348,7 +348,7 @@
                             <li><a class="box-btn-fullscreen" href="#"></a></li>
                         </ul>
                     </div>
-                   
+
                     <div class="row">
                         <div class="col-12 col-lg-6">
                             <div class="box-body chart-responsive">
@@ -434,7 +434,7 @@
                                             <h4 class="font-weight-600">
                                                 {{$currency}} {{$overall_earning_commision}}
                                                 <br>
-                                                
+
                                                 @lang('pages_names.Admin_Commision')
                                             </h4>
                                         </div>
@@ -450,7 +450,7 @@
                                             <h4 class="font-weight-600">
                                                {{$currency}} {{$overall_earning_driver_commision}}
                                                 <br>
-                                                
+
                                                                                                 @lang('pages_names.Driver_Earnings')
 
                                             </h4>
@@ -487,7 +487,7 @@
                             </div>
                             <div class="col-md-6 m-auto">
                                 <div class="row">
-                                   
+
                                     <div class="col-md-6">
                                         <!-- small box -->
                                     <div class="small-box text-white" style="background-color:#7460ee">
@@ -514,7 +514,7 @@
                                         </div>
                                     </div>
                                     </div>
-                                  
+
                                 </div>
                             </div>
                         </div>
@@ -597,7 +597,7 @@
 
         </div>
 
-        
+
 
 
         <div class="row">
@@ -631,7 +631,7 @@
                                         </thead>
                                         <tbody>
                                             @foreach ($history as $key=>$hist)
-                                               
+
                                             <tr>
                                                 <td>{{$key+1}}</td>
                                                 <td>{{$hist->driver->car_number ?? '' }}</td>
@@ -642,7 +642,7 @@
                                                     {{$hist->getConvertedOfflineAtAttribute()}}
                                                 </td>
                                                 <td>{{$hist->getConvertedDurationAtAttribute()}}</td>
-                                               
+
                                             </tr>
                                             @endforeach
                                         </tbody>
@@ -653,7 +653,7 @@
                                         </span>
                                         </div>
                                 </div>
-                               
+
                             </div>
                         </div>
                     </div>
@@ -661,9 +661,9 @@
             </div>
 
 
-           
+
         </div>
-       
+
 
     </section>
     <script src="{{ asset('assets/vendor_components/raphael/raphael.min.js') }}"></script>
@@ -694,8 +694,8 @@
         $(document).ready(function() {
             "use strict";
 
-            
-           
+
+
 
             if ($('#chart_1').length > 0) {
                 var ctx1 = document.getElementById("chart_1").getContext("2d");
@@ -837,7 +837,7 @@
     var marker = [];
     var onTrip, available;
     onTrip = available = true;
-   
+
     var driverId = "{{ $item->id }}"
     var directionsService = new google.maps.DirectionsService();
     var directionsRenderer = new google.maps.DirectionsRenderer({
@@ -889,7 +889,7 @@
             name: 'OnTrip',
             icon: iconBase + '/taxi.svg'
         },
-       
+
     };
 
     var requestRef = firebase.database().ref('drivers/'+driverId);
@@ -897,9 +897,9 @@
     requestRef.on('value', async function(snapshot) {
         var tripData = snapshot.val();
 
-        
+
             await loadDriverIcons(tripData);
-           
+
     });
 
     function loadDriverIcons(val){
@@ -908,7 +908,7 @@
             // var iconImg = icons['ontrip'].icon;
 
          var iconImg = '';
-               
+
                     if (valu.is_available == true && valu.is_active == 1) {
                         iconImg = icons['available'].icon;
                     } else if (valu.is_active == 1 && valu.is_available == false) {
@@ -933,12 +933,12 @@
         setTimeout(() => {
             rotateMarker(iconImg, val.bearing);
         }, 3000);
-   
+
  });
     }
 
 
-   
+
 
     // To rotate truck based on driver bearing
     function rotateMarker(carimage, bearing) {

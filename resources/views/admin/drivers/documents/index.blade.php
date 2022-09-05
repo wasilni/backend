@@ -115,7 +115,7 @@
                         @endif
                     </td>
 
-                   
+
                      <td>
                         @if($count == 0)
                            <!--  <span class="badge badge-danger">@lang('view_pages.not_uploaded')</span> -->
@@ -246,7 +246,7 @@ $(document).on('click','.decline',function(){
 $(document).on('click','.approve',function(){
     let span = $(this);
 
-    span.text('Approved');
+    span.text(trans('view_pages.approve'));
     span.removeClass('btn-outline');
     span.closest('tr').find('.comment_td').text('-');
     span.next().text('Decline');

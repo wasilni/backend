@@ -19,6 +19,7 @@ class CreateDriverRejectedRequestsTable extends Migration
             $table->unsignedInteger('driver_id');
             $table->boolean('is_after_accept')->default(false);
             $table->uuid('reason')->nullable();
+            $table->uuid('reason_ar')->nullable();
             $table->string('custom_reason')->nullable();
             $table->timestamps();
 

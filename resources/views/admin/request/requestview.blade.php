@@ -214,9 +214,9 @@ td {
 
         </div>
     </div>
-    
-    
-    
+
+
+
       <div class="box">
                 <div class="box-header bb-2 border-primary">
                     <h3 class="box-title">@lang('view_pages.ratingsdriver')</h3>
@@ -234,17 +234,51 @@ td {
                         </thead>
                         <tbody>
                              @foreach($RequestRatingsuser as $RequestRatingsuse)
-                            <tr>  
-                           
-                            
+                            <tr>
+
+
                       <td>{{ $RequestRatingsuse->requestDetail->driverDetail
                       ->name }}</td>
                     <td>{{ $RequestRatingsuse->rating }}</td>
-                     <td>{{ $RequestRatingsuse->comment }}</td>
+                     <td>
+                        @if($RequestRatingsuse->comment == null)
+                        -
+
+                        @else
+
+                        {{ $RequestRatingsuse->comment }}
+                        @endif
+
+
+
+                    </td>
                @if(App::getLocale() == 'en')
-                      <td>{{ $RequestRatingsuse->not_statisfied_en}}</td>
+                      <td>
+
+
+
+                        @if($RequestRatingsuse->not_statisfied_en == 'null')
+
+                        -
+
+                       @else
+
+                       {{ $RequestRatingsuse->not_statisfied_en}}
+                       @endif
+
+                     </td>
                       @else
-                       <td>{{ $RequestRatingsuse->not_statisfied_ar }}</td>
+                       <td>
+                        @if($RequestRatingsuse->not_statisfied_en == 'null')
+
+                        -
+
+                       @else
+
+                       {{ $RequestRatingsuse->not_statisfied_ar }}
+                       @endif
+
+                   </td>
                       @endif
                                @endforeach
                             </tr>
@@ -276,17 +310,46 @@ td {
                         </thead>
                         <tbody>
                              @foreach($RequestRatingsdriver as $RequestRatingsdrive)
-                            <tr>  
-                           
-                            
+                            <tr>
+
+
                       <td>{{ $RequestRatingsdrive->requestDetail->userDetail
                       ->name }}</td>
                     <td>{{ $RequestRatingsdrive->rating }}</td>
-                     <td>{{ $RequestRatingsdrive->comment }}</td>
+                     <td>
+                        @if($RequestRatingsdrive->comment == null)
+                        -
+
+                        @else
+
+                        {{ $RequestRatingsdrive->comment }}
+                        @endif
+
+
+                        </td>
                @if(App::getLocale() == 'en')
-                      <td>{{ $RequestRatingsdrive->not_statisfied_en}}</td>
+                      <td>
+
+
+                        @if($RequestRatingsdrive->not_statisfied_en == 'null')
+
+                        -
+
+                       @else
+                       {{ $RequestRatingsdrive->not_statisfied_en}}
+                       @endif
+
+
+                      </td>
                       @else
-                       <td>{{ $RequestRatingsdrive->not_statisfied_ar }}</td>
+                       <td>  @if($RequestRatingsdrive->not_statisfied_ar== 'null')
+
+                        -
+
+                       @else
+                       {{ $RequestRatingsdrive->not_statisfied_ar}}
+                       @endif
+</td>
                       @endif
                                @endforeach
                             </tr>

@@ -57,6 +57,7 @@ class DriverCancelRequestController extends BaseController
         $request_detail->update([
             'is_cancelled'=>true,
             'reason'=>$request->reason,
+            'reason_ar'=>$request->reason_ar,
             'custom_reason'=>$request->custom_reason,
             'cancel_method'=>UserType::DRIVER,
         ]);
@@ -64,7 +65,8 @@ class DriverCancelRequestController extends BaseController
         DriverRejectedRequest::create([
             'request_id'=>$request_detail->id,
             'is_after_accept'=>true,
-            'driver_id'=>$driver->id,'reason'=>$request->reason,
+            'driver_id'=>$driver->id,'reason'=>$request->reason,'reason_ar'=>$request->reason_ar,
+            'reason_ar'=>$request->reason_ar,
             'custom_reason'=>$request->custom_reason]);
 
         /**
@@ -96,7 +98,7 @@ class DriverCancelRequestController extends BaseController
         }
 
         if ($charge_applicable) {
-            
+
             $zone_type_price = $request_detail->zoneType->zoneTypePrice()->where('price_type', $ride_type)->first();
 
             $cancellation_fee = $zone_type_price->cancellation_fee;
@@ -126,7 +128,7 @@ class DriverCancelRequestController extends BaseController
             $request_result =  fractal($request_detail, new TripRequestTransformer)->parseIncludes('driverDetail');
 
             $push_request_detail = $request_result->toJson();
-            
+
             $title = trans('push_notifications.trip_cancelled_by_driver_title');
             $body = trans('push_notifications.trip_cancelled_by_driver_body');
 
@@ -141,10 +143,10 @@ class DriverCancelRequestController extends BaseController
             // dispatch(new NotifyViaSocket('transfer_msg', $socket_message));
 
             dispatch(new NotifyViaMqtt('trip_status_'.$user->id, json_encode($socket_data), $user->id));
-            
-            
+
+
               if($user->lang=='en'){
-        
+
               $title ='Trip Cancelled By Driver 🙁️';
               $body =  'The driver cancelled the ride,please create for another ride';
 
@@ -153,23 +155,23 @@ class DriverCancelRequestController extends BaseController
                 $title =  'الرحلة التغت من السائق';
                   $body ='الرحلة التغت رجاء انشأ رحلة';
                 }
-    
+
             $user->notify(new AndroidPushNotification($title, $body));
-            
-            
-            
+
+
+
         $title_en ='Trip Cancelled By Driver 🙁️';
         $title_ar =  'الرحلة التغت من السائق ';
         $body_en ='The driver cancelled the ride,please create for another ride';
 
         $body_ar ='الرحلة التغت رجاء انشأ رحلة';
-        
-        
+
+
        $user->notify(new DriverCancelRequestNotification($title_ar,$title_en, $body_ar,$body_en));
-        
-            
-            
-            
+
+
+
+
         }
 
         return $this->respondSuccess(null, 'driver_cancelled_trip');

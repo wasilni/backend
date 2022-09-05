@@ -10,7 +10,7 @@
             <th> @lang('view_pages.cancellation_reason')</th>
             <th> @lang('view_pages.cancellation_fee')</th>
             <th> @lang('view_pages.paid')</th>
-            
+
         </tr>
     </thead>
 
@@ -23,10 +23,10 @@
             <td>{{$result->requestDetail->request_number}}</td>
             <td>{{$result->requestDetail->getConvertedAcceptedAtAttribute()}}</td>
             <td>
-                <span>{{$result->userDetail->name ?? '-' }}</span>
+                <span>{{$result->userDetail ? $result->userDetail->name : '-'}}</span>
             </td>
             <td>
-                <span>{{ $result->driverDetail->name ?? '-' }}</span>
+                <span>{{$result->driverDetail ? $result->driverDetail->name : '-'}}</span>
             </td>
              <td>
                 @if ($result->requestDetail->cancel_method == 0)
@@ -43,19 +43,19 @@
              <td>
                {{$result->requestDetail->cancelReason?$result->requestDetail->cancelReason->reason:'-'}}
             </td>
-           
+
 
             <td class="text-center">
                 <span class="label label-warning">{{$result->requestdetail->requested_currency_symbol ?? $result->requestDetail->requested_currency_code }} {{ $result->cancellation_fee }}</span>
             </td>
-            
+
             @if($result->is_paid)
             <td><span class="label label-success">@lang('view_pages.paid')</span></td>
             @else
             <td><span class="label label-danger">@lang('view_pages.not_paid')</span></td>
             @endif
             @if(!auth()->user()->company_key)
-           
+
             @endif
         </tr>
     @empty

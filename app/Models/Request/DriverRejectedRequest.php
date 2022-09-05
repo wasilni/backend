@@ -18,7 +18,7 @@ class DriverRejectedRequest extends Model
      *
      * @var array
      */
-    protected $fillable = ['request_id','driver_id','is_after_accept','reason','custom_reason'];
+    protected $fillable = ['request_id','driver_id','is_after_accept','reason','custom_reason','reason_ar'];
 
     /**
      * The relationships that can be loaded with query string filtering includes.

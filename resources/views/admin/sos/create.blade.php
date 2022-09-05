@@ -37,7 +37,15 @@
         <select name="service_location_id" id="service_location_id" class="form-control" required>
             <option value="" >@lang('view_pages.select_area')</option>
             @foreach($cities as $key=>$city)
-            <option value="{{$city->id}}">{{$city->name}}</option>
+            <option value="{{$city->id}}">
+
+                @if(App::getLocale() == 'en')
+                {{ $city->name }}
+            @else
+            {{ $city->name_ar }}
+            @endif
+
+     </option>
             @endforeach
         </select>
         </div>

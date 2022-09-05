@@ -33,6 +33,10 @@ class CreateRequestsTable extends Migration
             $table->boolean('is_completed')->default(0);
             $table->boolean('is_cancelled')->default(0);
             $table->uuid('reason')->nullable();
+            $table->uuid('reason_ar')->nullable();
+
+
+
             $table->string('custom_reason')->nullable();
             $table->enum('cancel_method', [0,1,2])->comment('0 => Automatic,1 => User,2 => Driver');
             $table->double('total_distance', 15, 2)->default(0);

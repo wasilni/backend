@@ -353,15 +353,45 @@ class DriverController extends BaseController
         $message = trans('succes_messages.driver_approve_status_changed_succesfully');
         $user = User::find($driver->user_id);
         if ($status) {
-            $title ='driver approved' ;
+
+            if($user->lang=='en'){
+
+                $title ='driver approved' ;
        $body = 'Your profile verified and approved';
             $push_data = ['notification_enum'=>PushEnums::DRIVER_ACCOUNT_APPROVED];
             $socket_success_message = PushEnums::DRIVER_ACCOUNT_APPROVED;
+
+                }
+                else{
+                    $title ='اعتماد الطلب  ' ;
+                    $body = 'تم اعتماد طلبك بنجاح ';
+                         $push_data = ['notification_enum'=>PushEnums::DRIVER_ACCOUNT_APPROVED];
+                         $socket_success_message = PushEnums::DRIVER_ACCOUNT_APPROVED;
+                  }
+
+
+
         } else {
-            $title = trans('push_notifications.driver_declined_title');
-            $body = trans('push_notifications.driver_declined_body');
-            $push_data = ['notification_enum'=>PushEnums::DRIVER_ACCOUNT_DECLINED];
-            $socket_success_message = PushEnums::DRIVER_ACCOUNT_DECLINED;
+
+
+            if($user->lang=='en'){
+
+                $title ='driver declined title' ;
+       $body = ' driver declined body ';
+       $push_data = ['notification_enum'=>PushEnums::DRIVER_ACCOUNT_DECLINED];
+       $socket_success_message = PushEnums::DRIVER_ACCOUNT_DECLINED;
+
+                }
+                else{
+                    $title ='رفض الطلب ' ;
+                    $body = '   تم رفض طلبك يرجى اعادة ارسال طلب جديد ';
+                         $push_data = ['notification_enum'=>PushEnums::DRIVER_ACCOUNT_APPROVED];
+                         $socket_success_message = PushEnums::DRIVER_ACCOUNT_APPROVED;
+
+                  }
+
+
+
         }
 
 

@@ -227,13 +227,13 @@ $(document).on('click','.decline',function(){
             return false
         }
 
-        button.prev().text('Approve');
+        button.prev().text('{{ __('view_pages.approve') }}');
 
         if(!button.prev().hasClass('btn-outline')){
             button.prev().addClass('btn-outline')
         }
 
-        button.text('Declined');
+        button.text('{{ __('view_pages.decline') }}');
         button.removeClass('btn-outline');
         button.closest('tr').find('.comment_td').text(inputValue);
         button.closest('tr').find('.comment').val(inputValue);
@@ -249,7 +249,7 @@ $(document).on('click','.approve',function(){
     span.text('{{ __('view_pages.approve') }}');
     span.removeClass('btn-outline');
     span.closest('tr').find('.comment_td').text('-');
-    span.next().text('Decline');
+    span.next().text('{{ __('view_pages.decline') }}');
     span.closest('tr').find('.comment').val('');
     span.closest('tr').find('.document_status').val(1);
 

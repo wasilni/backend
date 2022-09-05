@@ -191,12 +191,12 @@
 
                 let url = $(this).attr('data-url');
                 swal({
-                    title: "{{trans('view_pages.Are_delete')}}",
-                    type: "error"
+                    title: "Are you sure to delete ?",
+                    type: "error",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "{{trans('view_pages.delete')}}",
-                    cancelButtonText: "{{trans('view_pages.No_Keep_it')}}",
+                    confirmButtonText: "Delete",
+                    cancelButtonText: "No! Keep it",
                     closeOnConfirm: false,
                     closeOnCancel: true
                 }, function(isConfirm) {
@@ -249,7 +249,7 @@
                         showCancelButton: true,
                         closeOnConfirm: false,
                         confirmButtonText: "{{trans('view_pages.decline')}}"
-                        cancelButtonText: "{{trans('view_pages.Close')}}",
+                        cancelButtonText: "{{trans('view_pages.Enter_Reason_for_Decline')}}",
                         confirmButtonColor: '#fc4b6c',
                         confirmButtonBorderColor: '#fc4b6c',
                         animation: "slide-from-top",

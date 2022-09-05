@@ -246,7 +246,7 @@ $(document).on('click','.decline',function(){
 $(document).on('click','.approve',function(){
     let span = $(this);
 
-    span.text('Approved');
+    span.text('{{ __('view_pages.approve') }}');
     span.removeClass('btn-outline');
     span.closest('tr').find('.comment_td').text('-');
     span.next().text('Decline');

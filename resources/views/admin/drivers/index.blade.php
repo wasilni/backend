@@ -200,7 +200,7 @@
                     confirmButtonText: "{{trans('view_pages.delete')}}",
                     cancelButtonText: "{{trans('view_pages.No_Keep_it')}}",
                     closeOnConfirm: false,
-                    closeOnCancel: true
+                    closeOnCancel: true,
                 }, function(isConfirm) {
                     if (isConfirm) {
                         swal.close();

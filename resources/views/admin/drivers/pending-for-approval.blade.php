@@ -248,16 +248,16 @@
 
                 swal({
                         title: "",
-                        text: "Reason for Decline",
+                        text:  "{{trans('view_pages.Reason_for_Decline')}}",
                         type: "input",
                         showCancelButton: true,
                         closeOnConfirm: false,
-                        confirmButtonText: 'Decline',
-                        cancelButtonText: 'Close',
+                        confirmButtonText: "{{trans('view_pages.decline')}}",
+                        cancelButtonText: "{{trans('view_pages.Close')}}",
                         confirmButtonColor: '#fc4b6c',
                         confirmButtonBorderColor: '#fc4b6c',
                         animation: "slide-from-top",
-                        inputPlaceholder: "Enter Reason for Decline",
+                        inputPlaceholder: "{{trans('view_pages.Enter_Reason_for_Decline')}}",
                         inputValue: inpVal
                     },
                     function(inputValue) {

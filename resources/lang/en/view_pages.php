@@ -576,5 +576,7 @@ return array (
 
 'No_Keep_it' => ' No Keep it ',
 
+'Reason_for_Decline' => ' Reason for Decline ',
+'Enter_Reason_for_Decline' => ' Enter Reason for Decline ',
 
 );

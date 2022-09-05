@@ -475,7 +475,9 @@ return array (
 'Ride_Later' => '    الجولة لاحقا',
 'Are_delete' => '     هل أنت متاكد من الحذف',
 'No_Keep_it' => '      لا  ',
+'Reason_for_Decline' => ' سبب الرفض',
 
+'Enter_Reason_for_Decline' => ' ادخل السبب ',
 
 
 

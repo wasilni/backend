@@ -38,7 +38,7 @@
                             <div class="col-5 col-md-1 text-left">
                                 <button class="btn btn-outline btn-sm btn-danger py-2" type="button" data-toggle="modal"
                                     data-target="#modal-default">
-                                   @lang('view_pages.Filter_drivers')     
+                                   @lang('view_pages.Filter_drivers')
                                 </button>
                             </div>
 
@@ -191,12 +191,12 @@
 
                 let url = $(this).attr('data-url');
                 swal({
-                    title: "Are you sure to delete ?",
-                    type: "error",
+                    title: "{{trans('view_pages.Are_delete')}}",
+                    type: "error"
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Delete",
-                    cancelButtonText: "No! Keep it",
+                    confirmButtonText: "{{trans('view_pages.delete')}}",
+                    cancelButtonText: "{{trans('view_pages.No_Keep_it')}}","No! Keep it",
                     closeOnConfirm: false,
                     closeOnCancel: true
                 }, function(isConfirm) {
@@ -244,16 +244,16 @@
 
                 swal({
                         title: "",
-                        text: "Reason for Decline",
+                        text: "{{trans('view_pages.Reason_for_Decline')}}",
                         type: "input",
                         showCancelButton: true,
                         closeOnConfirm: false,
-                        confirmButtonText: 'Decline',
-                        cancelButtonText: 'Close',
+                        confirmButtonText: "{{trans('view_pages.decline')}}"
+                        cancelButtonText: "{{trans('view_pages.Close')}}",
                         confirmButtonColor: '#fc4b6c',
                         confirmButtonBorderColor: '#fc4b6c',
                         animation: "slide-from-top",
-                        inputPlaceholder: "Enter Reason for Decline",
+                        inputPlaceholder: "{{trans('view_pages.Enter_Reason_for_Decline')}}",
                         inputValue: inpVal
                     },
                     function(inputValue) {

@@ -194,7 +194,7 @@
 
                 swal({
                     title: "{{trans('view_pages.Are_delete')}}",
-                    type: "error"
+                    type: "error",
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
                     confirmButtonText: "{{trans('view_pages.delete')}}",

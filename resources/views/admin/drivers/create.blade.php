@@ -34,7 +34,14 @@
 <select name="service_location_id" id="service_location_id" class="form-control" onchange="getypesAndCompanys()" required>
     <option value="" selected disabled>@lang('view_pages.select_area')</option>
     @foreach($services as $key=>$service)
-    <option value="{{$service->id}}" {{ old('service_location_id') == $service->id ? 'selected' : '' }}>{{$service->name}}</option>
+    <option value="{{$service->id}}" {{ old('service_location_id') == $service->id ? 'selected' : '' }}>
+        @if(App::getLocale() == 'en')
+        {{$service->name}}
+    @else
+    {{$service->name_ar}}
+
+    @endif
+       </option>
     @endforeach
 </select>
 </div>
@@ -301,7 +308,7 @@
     });
 
     function getypesAndCompany(){
-        
+
             var admin_id = document.getElementById('admin_id').value;
             var ajaxPath = "<?php echo url('types/by/admin');?>";
             var ajaxCompanyPath = "<?php echo url('company/by/admin');?>";

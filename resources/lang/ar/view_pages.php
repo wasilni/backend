@@ -473,6 +473,9 @@ return array (
 'reason_ar' => '  السبب باللغة العربية',
 'Ride_Now' => '    الجولة الان',
 'Ride_Later' => '    الجولة لاحقا',
+'Are_delete' => '     هل أنت متاكد من الحذف',
+'No_Keep_it' => '      لا  ',
+
 
 
 

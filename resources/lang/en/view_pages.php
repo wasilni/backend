@@ -572,7 +572,9 @@ return array (
 'Ride_Later' => 'Ride Later ',
 
 
+'Are_delete' => 'Are you sure to delete ?',
 
+'No_Keep_it' => ' No Keep it ',
 
 
 );

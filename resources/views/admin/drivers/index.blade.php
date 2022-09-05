@@ -193,12 +193,12 @@
                 let url = $(this).attr('data-url');
 
                 swal({
-                    title: "Are you sure to delete ?",
-                    type: "error",
+                    title: "{{trans('view_pages.Are_delete')}}",
+                    type: "error"
                     showCancelButton: true,
                     confirmButtonColor: "#DD6B55",
-                    confirmButtonText: "Delete",
-                    cancelButtonText: "No! Keep it",
+                    confirmButtonText: "{{trans('view_pages.delete')}}",
+                    cancelButtonText: "{{trans('view_pages.No_Keep_it')}}","No! Keep it",
                     closeOnConfirm: false,
                     closeOnCancel: true
                 }, function(isConfirm) {

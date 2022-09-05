@@ -38,7 +38,12 @@
                                                 @foreach ($services as $key => $service)
                                                     <option value="{{ $service->id }}"
                                                         {{ old('service_location_id', $item->service_location_id) == $service->id ? 'selected' : '' }}>
-                                                        {{ $service->name }}</option>
+                                                        @if(App::getLocale() == 'en')
+                                                        {{$service->name}}
+                                                    @else
+                                                    {{$service->name_ar}}
+
+                                                    @endif</option>
                                                 @endforeach
                                             </select>
                                         </div>

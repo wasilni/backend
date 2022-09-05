@@ -71,13 +71,13 @@ class DriverController extends BaseController
     protected $imageUploader;
 
     protected $gateway;
-    
+
     protected $country;
 
     // protected $callable_gateway_class;
 
 
-   
+
 
 
     /**
@@ -91,7 +91,7 @@ class DriverController extends BaseController
         $this->imageUploader = $imageUploader;
         $this->user = $user;
         $this->country = $country;
-        
+
         $this->gateway = env('PAYMENT_GATEWAY');
         // $this->callable_gateway_class = app(config('base.payment_gateway.'.$this->gateway.'.class'));
     }
@@ -101,7 +101,7 @@ class DriverController extends BaseController
     * @return \Illuminate\Http\JsonResponse
     */
     public function index()
-    {   
+    {
         $page = trans('pages_names.drivers');
         $main_menu = 'drivers';
         $sub_menu = 'driver_details';
@@ -273,7 +273,7 @@ class DriverController extends BaseController
         $updatedParams = $request->only(['service_location_id', 'name','mobile','email','address','gender','vehicle_type','car_make','car_model','car_color','car_number']);
 
         $user = $driver->user;
-        
+
         $validate_exists_email = $this->user->belongsTorole(Role::DRIVER)->where('email', $request->email)->where('id', '!=', $user->id)->exists();
 
         $validate_exists_mobile = $this->user->belongsTorole(Role::DRIVER)->where('mobile', $request->mobile)->where('id', '!=', $user->id)->exists();
@@ -339,11 +339,11 @@ class DriverController extends BaseController
                 // return redirect('drivers')->with('warning', $message);
                 return redirect('drivers/document/view/'.$driver->id);
             }
-            
+
             $driver->update([
             'reason' => null
         ]);
-        
+
         }
 
         $driver->update([
@@ -376,15 +376,15 @@ class DriverController extends BaseController
         $socket_data->success_message  = $socket_success_message;
         $socket_data->data  = $socket_params;
 
-         
+
         dispatch(new NotifyViaMqtt('approval_status_'.$driver_details->id, json_encode($socket_data), $driver_details->id));
-        
+
               $user->notify(new AndroidPushNotification($title, $body, $push_data));
-        
+
 // if($driver->user->lang =='en'){
 //      $title ='driver approved' ;
 //       $body = 'Your profile verified and approved';
-    
+
 // }
 // else{
 //         $title ='  تفعيل حسابك الان' ;
@@ -392,10 +392,10 @@ class DriverController extends BaseController
 // }
 
 
-          
 
-        
-      
+
+
+
        $title_en ='driver approved' ;
        $body_en = 'Your profile verified and approved';
 
@@ -403,7 +403,7 @@ class DriverController extends BaseController
         $body_ar = 'تم تفعيل حسابك بنجاح';
 
 
- $notifable_driver->notify(new AppendAccountNotification($title_ar,$title_en, $body_ar,$body_en));
+ $user->notify(new AppendAccountNotification($title_ar,$title_en, $body_ar,$body_en));
 
 
         return redirect('drivers')->with('success', $message);
@@ -453,10 +453,10 @@ class DriverController extends BaseController
 
    public function DriverTripRequestIndex(Driver $driver)
     {
-       
+
         $completedTrips = RequestRequest::where('driver_id',$driver->id)->companyKey()->whereIsCompleted(true)->count();
         $cancelledTrips = RequestRequest::where('driver_id',$driver->id)->companyKey()->whereIsCancelled(true)->count();
-        
+
 
         // $card = [];
         // $card['completed_trip'] = ['name' => 'trips_completed', 'display_name' => 'Completed Rides', 'count' => $completedTrips, 'icon' => 'fa fa-flag-checkered text-green'];
@@ -507,21 +507,21 @@ $Balance_Amount=$amount->amount_balance;
 
     public function StoreDriverPaymentHistory(AddDriverMoneyToWalletRequest $request,Driver $driver)
     {
-        
+
         $user_currency_code = env('SYSTEM_DEFAULT_CURRENCY');
-         
+
         $converted_amount_array =  convert_currency_to_usd($user_currency_code, $request->input('amount'));
 
         $converted_amount = $converted_amount_array['converted_amount'];
         $converted_type = $converted_amount_array['converted_type'];
         $conversion = $converted_type.':'.$request->amount.'-'.$converted_amount;
         $transaction_id = Str::random(6);
-        
-       
+
+
             $wallet_model = new DriverWallet();
             $wallet_add_history_model = new DriverWalletHistory();
             $user_id = $driver->id;
-       
+
 
         $user_wallet = $wallet_model::firstOrCreate([
             'user_id'=>$user_id]);
@@ -557,7 +557,7 @@ $Balance_Amount=$amount->amount_balance;
             $query->companyKey();
         })->paginate(20);
         return view('admin.drivers.driver-ratings', compact('page', 'main_menu', 'sub_menu','results'));
-        
+
     }
 
     public function driverRatingView(Driver $driver)
@@ -573,7 +573,7 @@ $Balance_Amount=$amount->amount_balance;
 
     /**
      * Withdrawal Requests List
-     * 
+     *
      * */
     public function withdrawalRequestsList()
     {
@@ -593,17 +593,17 @@ $Balance_Amount=$amount->amount_balance;
                 $query->companyKey();
                 })->whereHas('driverDetail',function($query)use($admin_data){
                 $query->where('service_location_id', $admin_data->service_location_id);
-                })->orderBy('created_at','desc')->paginate(20);     
+                })->orderBy('created_at','desc')->paginate(20);
             }
-        
+
 
         return view('admin.drivers.driver-wallet-withdrawal-requests-list', compact('page', 'main_menu', 'sub_menu','history'));
     }
 
     /**
      * Wallet withdrawal Requests Detail
-     * 
-     * 
+     *
+     *
      * */
     public function withdrawalRequestDetail(Driver $driver){
 
@@ -619,7 +619,7 @@ $Balance_Amount=$amount->amount_balance;
         $amount = DriverWallet::where('user_id',$driver->id)->first();
 
          $card = [];
-        
+
         $card['balance_amount'] = ['name' => 'balance_amount', 'display_name' => 'Balance Amount', 'count' => $amount->amount_balance, 'icon' => 'fa fa-ban text-red'];
 
         return view('admin.drivers.DriverWalletWithdrawalRequestDetail', compact('page', 'main_menu', 'sub_menu','history','card'));
@@ -628,8 +628,8 @@ $Balance_Amount=$amount->amount_balance;
 
     /**
      * Approve Withdrawal Request
-     * 
-     * 
+     *
+     *
      * */
     public function approveWithdrawalRequest(WalletWithdrawalRequest $wallet_withdrawal_request){
 
@@ -657,8 +657,8 @@ $Balance_Amount=$amount->amount_balance;
 
     /**
      * Decline Withdrawal Request
-     * 
-     * 
+     *
+     *
      * */
     public function declineWithdrawalRequest(WalletWithdrawalRequest $wallet_withdrawal_request){
 
@@ -672,8 +672,8 @@ $Balance_Amount=$amount->amount_balance;
 
         /**
      * Negative Balance Drivers
-     * 
-     * 
+     *
+     *
      * */
 
     public function NeagtiveBalanceDrivers()

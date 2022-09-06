@@ -484,6 +484,14 @@ return array (
 'Basic_Information' => ' معلومات اساسية',
 'Manage_Password' => ' ادارة كلمة السر ',
 'google_map_key' => 'google map key  ',
+'firebase-db-url' => 'Firebase Database Url',
+'firebase-api-key' => 'Firebase Api Key',
+'firebase-auth-domain' => 'Firebase Auth Domain',
+'firebase-project-id' => 'Firebase Project Id',
+'firebase-storage-bucket' => 'Firebase Storage Bucket',
+'firebase-messaging-sender-id' => 'Firebase Messaging Sender Id',
+'firebase-app-id' => 'Firebase App Id',
+'firebase-measurement-id' => 'Firebase Measurement Id',
 
 
 

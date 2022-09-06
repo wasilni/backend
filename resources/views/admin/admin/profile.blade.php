@@ -9,17 +9,17 @@
       <div class="col-12">
         <!-- Profile Image -->
         <div class="box">
-          <div class="box-body box-profile">            
+          <div class="box-body box-profile">
             <div class="row">
                 <div class="col-md-4 col-12">
                     <div class="profile-user-info">
-                      <p>Email :<span class="text-gray pl-10">{{ $user->email }}</span> </p>
-                      <p>Phone :<span class="text-gray pl-10">{{ $user->mobile }}</span></p>
-                      <p>Address :<span class="text-gray pl-10">{{ $user->admin ? $user->admin->address : '' }}</span></p>
+                      <p>@lang('view_pages.email') :<span class="text-gray pl-10">{{ $user->email }}</span> </p>
+                      <p>@lang('view_pages.phone')  :<span class="text-gray pl-10">{{ $user->mobile }}</span></p>
+                      <p>@lang('view_pages.address')  :<span class="text-gray pl-10">{{ $user->admin ? $user->admin->address : '' }}</span></p>
                   </div>
                </div>
                 <div class="col-md-3 col-12">
-                    {{-- <div class="profile-user-info">						
+                    {{-- <div class="profile-user-info">
                       <p class="margin-bottom">Social Profile</p>
                       <div class="user-social-acount">
                           <button class="btn btn-circle btn-social-icon btn-facebook"><i class="fa fa-facebook"></i></button>
@@ -50,12 +50,12 @@
             <li><a class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}}" href="#basic_info" data-toggle="tab">Basic Information</a></li>
             <li><a class="{{ old('tab') == 'manage_password' ? 'active' : ''}}" href="#manage_password" data-toggle="tab">Manage Password</a></li>
           </ul>
-                      
-          <div class="tab-content"> 
-            
-            <div class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}} tab-pane" id="basic_info">	
+
+          <div class="tab-content">
+
+            <div class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}} tab-pane" id="basic_info">
                 <form  method="post" class="form-horizontal" action="{{url('admins/profile/update',$user->id)}}" enctype="multipart/form-data">
-                    @csrf	
+                    @csrf
                 <input type="hidden" name="tab" value="basic_info">
                 <div class="box p-15">
                     <div class="row">
@@ -64,7 +64,7 @@
                             <label for="first_name">@lang('view_pages.first_name')</label>
                             <input class="form-control" type="text" id="first_name" name="first_name" value="{{old('first_name',$user->admin->first_name)}}" required="" placeholder="@lang('view_pages.enter_first_name')">
                             <span class="text-danger">{{ $errors->first('first_name') }}</span>
-                
+
                         </div>
                         </div>
                                 <div class="col-sm-6">
@@ -72,7 +72,7 @@
                                 <label for="last_name">@lang('view_pages.last_name')</label>
                                 <input class="form-control" type="text" id="last_name" name="last_name" value="{{old('last_name',$user->admin->last_name)}}" required="" placeholder="@lang('view_pages.enter_last_name')">
                                 <span class="text-danger">{{ $errors->first('last_name') }}</span>
-                    
+
                             </div>
                         </div>
                     </div>
@@ -120,7 +120,7 @@
                             <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                     </div>
                     </div>
-      
+
                     <div class="form-group">
                         <div class="col-12">
                             <button class="btn btn-primary btn-sm pull-right" type="submit">
@@ -129,14 +129,14 @@
                         </div>
                     </div>
 
-                    </div>	
-                    </form>		  
+                    </div>
+                    </form>
                 </div>
 
-            <div class="{{ old('tab') == 'manage_password' ? 'active' : ''}} tab-pane" id="manage_password">		
-                <div class="box p-15">		
+            <div class="{{ old('tab') == 'manage_password' ? 'active' : ''}} tab-pane" id="manage_password">
+                <div class="box p-15">
                     <form  method="post" class="form-horizontal" action="{{url('admins/profile/update',$user->id)}}" enctype="multipart/form-data">
-                        @csrf	
+                        @csrf
                         <input type="hidden" name="tab" value="manage_password">
                         <div class="row">
                             <div class="col-sm-6">
@@ -164,7 +164,7 @@
                             </div>
                         </div>
                     </form>
-                </div>			  
+                </div>
             </div>
             <!-- /.tab-pane -->
           </div>
@@ -173,7 +173,7 @@
         <!-- /.nav-tabs-custom -->
       </div>
       <!-- /.col -->
-        
+
     </div>
     <!-- /.row -->
 

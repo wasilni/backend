@@ -579,4 +579,9 @@ return array (
 'Reason_for_Decline' => ' Reason for Decline ',
 'Enter_Reason_for_Decline' => ' Enter Reason for Decline ',
 
+
+'phone' => ' phone',
+'address' => ' address',
+
+
 );

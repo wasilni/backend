@@ -478,7 +478,8 @@ return array (
 'Reason_for_Decline' => ' سبب الرفض',
 
 'Enter_Reason_for_Decline' => ' ادخل السبب ',
-
+'phone' => '  رقم التلفون  ',
+'address' => ' العنوان',
 
 
 

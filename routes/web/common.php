@@ -13,7 +13,7 @@
  * Temporary dummy route for testing SPA.
  */
 
-Route::namespace ('Common')->group(function () {
+Route::namespace ('Common')->group(['middleware' => 'Localization'], function () {
 
 	// Get admin-login form
 	Route::get('unauthorized', 'ExceptionViewController@unauthorized');

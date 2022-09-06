@@ -226,6 +226,6 @@ class UserController extends BaseController
         $results = $queryFilter->builder($query)->customFilter(new RequestFilter)->defaultSort('-created_at')->paginate();
 
 
-        return view('admin.users.user-request-list', compact('results','card','main_menu','sub_menu','completedTrips','cancelledTrips','upcomingTrips'));
+        return view('admin.users.user-request-list', compact('results','main_menu','sub_menu','completedTrips','cancelledTrips','upcomingTrips'));
     }
 }

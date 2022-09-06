@@ -585,5 +585,6 @@ return array (
 'Basic_Information' => '  Basic Information',
 
 'Manage_Password' => ' Manage Password',
+'google_map_key' => 'google map key  ',
 
 );

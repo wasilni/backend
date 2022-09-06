@@ -483,6 +483,7 @@ return array (
 
 'Basic_Information' => ' معلومات اساسية',
 'Manage_Password' => ' ادارة كلمة السر ',
+'google_map_key' => 'google map key  ',
 
 
 

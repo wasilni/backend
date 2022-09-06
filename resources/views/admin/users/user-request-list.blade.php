@@ -52,17 +52,35 @@
     <!-- Start Page content -->
     <section class="content">
         <div class="row">
-            @foreach ($card as $item)
-                <div class="col-xl-4 col-md-6 col-12">
-                    <div class="box box-body">
-                        <h5 class="text-capitalize">{{ $item['display_name'] }}</h5>
-                        <div class="flexbox wid-icons mt-2">
-                            <span class="{{ $item['icon'] }} font-size-40"></span>
-                            <span class=" font-size-30">{{ $item['count'] }}</span>
-                        </div>
+
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="box box-body">
+                    <h5 class="text-capitalize">@lang('view_pages.Completed_Rides')</h5>
+                    <div class="flexbox wid-icons mt-2">
+                        <span class="fa fa-flag-checkered text-green  font-size-40"></span>
+                        <span class=" font-size-30">{{ $completedTrips }}</span>
                     </div>
                 </div>
-            @endforeach
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="box box-body">
+                    <h5 class="text-capitalize">@lang('view_pages.Cancelled_Rides')</h5>
+                    <div class="flexbox wid-icons mt-2">
+                        <span class="fa fa-ban text-red  font-size-40"></span>
+                        <span class=" font-size-30">{{ $cancelledTrips}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-4 col-md-6 col-12">
+                <div class="box box-body">
+                    <h5 class="text-capitalize">@lang('view_pages.Upcoming_Rides')</h5>
+                    <div class="flexbox wid-icons mt-2">
+                        <span class="fa fa-calendar font-size-40"></span>
+                        <span class=" font-size-30">{{ $upcomingTrips }}</span>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
          <div class="content">
@@ -163,11 +181,11 @@
         </div>
         </div>
 
-        
 
-       
- 
-        
+
+
+
+
 
     </section>
 
@@ -179,6 +197,6 @@
 <!-- TODO: Add SDKs for Firebase products that you want to use https://firebase.google.com/docs/web/setup#available-libraries -->
 <script src="https://www.gstatic.com/firebasejs/7.19.0/firebase-analytics.js"></script>
 
-   
+
 
 @endsection

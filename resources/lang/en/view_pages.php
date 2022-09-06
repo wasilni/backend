@@ -582,6 +582,8 @@ return array (
 
 'phone' => ' phone',
 'address' => ' address',
+'Basic_Information' => '  Basic Information',
 
+'Manage_Password' => ' Manage Password',
 
 );

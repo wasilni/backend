@@ -481,6 +481,8 @@ return array (
 'phone' => '  رقم التلفون  ',
 'address' => ' العنوان',
 
+'Basic_Information' => ' معلومات اساسية',
+'Manage_Password' => ' ادارة كلمة السر ',
 
 
 

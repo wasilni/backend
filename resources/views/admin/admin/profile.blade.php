@@ -47,8 +47,8 @@
       <div class="col-12">
         <div class="nav-tabs-custom box-profile">
           <ul class="nav nav-tabs">
-            <li><a class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}}" href="#basic_info" data-toggle="tab">Basic Information</a></li>
-            <li><a class="{{ old('tab') == 'manage_password' ? 'active' : ''}}" href="#manage_password" data-toggle="tab">Manage Password</a></li>
+            <li><a class="{{ old('tab','basic_info') == 'basic_info' ? 'active' : ''}}" href="#basic_info" data-toggle="tab">@lang('view_pages.Basic_Information')</a></li>
+            <li><a class="{{ old('tab') == 'manage_password' ? 'active' : ''}}" href="#manage_password" data-toggle="tab">@lang('view_pages.Manage_Password') </a></li>
           </ul>
 
           <div class="tab-content">
@@ -115,8 +115,8 @@
                             <label for="profile_picture">@lang('view_pages.profile')</label><br>
                             <img id="blah" src="{{ $user->profile_picture ?? asset('assets/img/user-dummy.svg') }}" class="rounded-circle mb-4" alt="" style="max-width: 25%;"><br>
                             <input type="file" id="profile_picture" onchange="readURL(this)" name="profile_picture" style="display:none">
-                            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">Browse</button>
-                            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">Remove</button><br>
+                            <button class="btn btn-primary btn-sm" type="button" onclick="$('#profile_picture').click()" id="upload">@lang('view_pages.browse')</button>
+                            <button class="btn btn-danger btn-sm" type="button" id="remove_img" style="display: none;">@lang('view_pages.remove')</button><br>
                             <span class="text-danger">{{ $errors->first('profile_picture') }}</span>
                     </div>
                     </div>
